@@ -7,15 +7,175 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-
-    {% include "govuk-prototype-kit/includes/homepage-top.njk" %}
-
+  <div class="govuk-grid-column-full">
     <h1 class="govuk-heading-xl">
-      {{ serviceName }}
+      {{serviceName}}
+      service
     </h1>
+    <h2 class="govuk-heading-l">Shortcuts into the journey</h2>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        <a href="govuk/guidance.html" class="govuk-link govuk-link--no-visited-state">GOV.UK guidance</a>
+      </li>
+      <li>
+        <a href="sign-in/sign-in" class="govuk-link govuk-link--no-visited-state">Sign in</a>
+      </li>
+      <li>
+        <a href="obliged-entity-type" class="govuk-link govuk-link--no-visited-state">Obliged entity type</a>
+      </li>
+      <li>
+        <a href="obliged-entity-details-organisation" class="govuk-link govuk-link--no-visited-state">Name of organisation</a>
+      </li>
+      <li>
+        <a href="obliged-entity-details-name" class="govuk-link govuk-link--no-visited-state">Name of person</a>
+      </li>
+      <li>
+        <a href="obliged-entity-email" class="govuk-link govuk-link--no-visited-state">Email</a>
+      </li>
+      <li>
+        <a href="company-lookup/company-number" class="govuk-link govuk-link--no-visited-state">What is the company number for the PSC with the discrepancy</a>
+      </li>
+      <li>
+        <a href="company-lookup/confirm-company" class="govuk-link govuk-link--no-visited-state">Confirm company</a>
+      </li>
+      <li>
+        <a href="discrepancy-details/psc-names" class="govuk-link govuk-link--no-visited-state">PSC names</a>
+      </li>
+      <li>
+        <a href="discrepancy-details/psc-person" class="govuk-link govuk-link--no-visited-state">PSC person</a>
+      </li>
+      <li>
+        <a href="discrepancy-details/other-info" class="govuk-link govuk-link--no-visited-state">Open textbox</a>
+      </li>
+      <li>
+        <a href="check-your-answers" class="govuk-link govuk-link--no-visited-state">Check answers</a>
+      </li>
+      <li>
+        <a href="confirmation" class="govuk-link govuk-link--no-visited-state">Confirmation</a>
+      </li>
+    </ul>
+    <h2 class="govuk-heading-l">Email shortcuts</h2>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        <a href="emails/confirmation-email">Confirmation email</a>
+      </li>
+      <li>
+        <a href="emails/outcome">Outcome email</a>
+      </li>
+    </ul>
+    <h2 class="govuk-heading-l">Other service shortcuts</h2>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        <a href="guidance.html" class="govuk-link govuk-link--no-visited-state">Guidance</a>
+      </li>
+      <li>
+        <a href="https://www.gov.uk/guidance/report-a-discrepancy-about-a-beneficial-owner-on-the-psc-register-by-an-obliged-entity" class="govuk-link govuk-link--no-visited-state">Live guidance</a>
+      </li>
+    </ul>
+    <h2 class="govuk-heading-l">Prototype versions</h2>
 
-    {% include "govuk-prototype-kit/includes/homepage-bottom.njk" %}
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Version</th>
+          <th scope="col" class="govuk-table__header">Changes</th>
+          <th scope="col" class="govuk-table__header">Status</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">
+            <a href="https://fivemld-future.herokuapp.com/" class="govuk-link govuk-link--no-visited-state">Future version (3.0)</a>
+          </th>
+          <td class="govuk-table__cell">
+            <details class="govuk-details" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  Changes included in version 3.0
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>Added the confirm company pattern</li>
+                  <li>Added the breakdown of PSC information</li>
+                  <li>Added the check the answers page</li>
+                </ul>
+              </div>
+            </details>
+          </td>
+          <td class="govuk-table__cell">
+            {{govukTag({
+              text: "To be built",
+              classes: "govuk-tag--grey"
+            })}}
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">
+            <a href="https://fivemld-current.herokuapp.com/" class="govuk-link govuk-link--no-visited-state">Current version (2.5)</a>
+          </th>
+          <td class="govuk-table__cell">
+            <details class="govuk-details" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  Changes included in version 2.5
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>Added the check your answers page change links</li>
+                  <li>Added the confirmation email</li>
+                </ul>
+              </div>
+            </details>
+          </td>
+          <td class="govuk-table__cell">
+            {{ govukTag({
+              text: "Built"
+            }) }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h2 class="govuk-heading-l">Discrepancy types</h2>
+    <h3 class="govuk-heading-m">Person</h3>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Name</li>
+      <li>Date of birth</li>
+      <li>Nationality</li>
+      <li>Country of residence</li>
+      <li>Address</li>
+      <li>Notified date</li>
+      <li>Nature of control</li>
+      <li>Other reason</li>
+    </ul>
+    <h3 class="govuk-heading-m">RLE (company)</h3>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Company name</li>
+      <li>Company number</li>
+      <li>Place of registration</li>
+      <li>Incorporation law</li>
+      <li>Governing law</li>
+      <li>Legal form</li>
+      <li>Address</li>
+      <li>Notified date</li>
+      <li>Nature of control</li>
+      <li>Other reason</li>
+    </ul>
+    <h3 class="govuk-heading-m">Other registered person (ORP)</h3>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Name</li>
+      <li>Governing law</li>
+      <li>Legal form</li>
+      <li>Address</li>
+      <li>Notified date</li>
+      <li>Nature of control</li>
+      <li>Other reason</li>
+    </ul>
+    <h3 class="govuk-heading-m">Statements</h3>
+    <p class="govuk-body">Show the PSC's for that organisation but only show the "PSC is missing" option with no "or"</p>
+    <h3 class="govuk-heading-m">Super secure PSC</h3>
+    <p class="govuk-body"></p>
   </div>
 </div>
 
