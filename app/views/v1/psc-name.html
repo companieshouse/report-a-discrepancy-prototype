@@ -6,6 +6,7 @@ Which PSC has a discrepancy for {{company_name}} – {{ serviceName }} – GOV.U
 
 {% block beforeContent %}
   {% include "../includes/phase-banner.html" %}
+  {% include "../includes/account-banner.html" %}
   <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
@@ -20,14 +21,14 @@ Which PSC has a discrepancy for {{company_name}} – {{ serviceName }} – GOV.U
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
-                Which PSC has a discrepancy for {{company_name}}?
+                Which PSC has a discrepancy for Big Company LTD?
               </h1>
             </legend>
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="psc-name" name="psc-name" type="radio" value="Matt Tomas">
+                <input class="govuk-radios__input" id="psc-name" name="psc-name" type="radio" value="Lisa Robinson">
                 <label class="govuk-label govuk-radios__label" for="psc-name">
-                  Matt Tomas
+                  Lisa Robinson
                 </label>
                 <div id="psc-item-hint" class="govuk-hint govuk-radios__hint">Born August 1980</div>
               </div>

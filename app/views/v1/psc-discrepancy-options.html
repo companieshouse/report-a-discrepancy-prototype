@@ -6,6 +6,7 @@ What type of discrepancy are you reporting for xxxx – {{ serviceName }} – GO
 
 {% block beforeContent %}
   {% include "../includes/phase-banner.html" %} 
+  {% include "../includes/account-banner.html" %}
   <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
@@ -20,7 +21,7 @@ What type of discrepancy are you reporting for xxxx – {{ serviceName }} – GO
           <fieldset class="govuk-fieldset" aria-describedby="psc-options-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
-                What type of discrepancy are you reporting for xxxx?
+                What type of discrepancy are you reporting for {{ data['psc-name'] }}?
               </h1>
             </legend>
             <div id="psc-options-hint" class="govuk-hint">

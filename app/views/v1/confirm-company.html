@@ -6,6 +6,7 @@
 
 {% block beforeContent %}
   {% include "../includes/phase-banner.html" %}
+  {% include "../includes/account-banner.html" %}
   <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
@@ -23,28 +24,28 @@
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">Company name</dt>
-            <dd class="govuk-summary-list__value">{{company_name}}</dd>
+            <dd class="govuk-summary-list__value">Big Shop LTD</dd>
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">Company number</dt>
-            <dd class="govuk-summary-list__value">{{company_number}}</dd>
+            <dd class="govuk-summary-list__value">{{ data['company-number'] }}</dd>
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">Status</dt>
-            <dd class="govuk-summary-list__value">{{company_status | capitalize}}
+            <dd class="govuk-summary-list__value">Active
             </dd>
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">Incorporation date</dt>
-            <dd class="govuk-summary-list__value">{{companyIncorp}}</dd>
+            <dd class="govuk-summary-list__value">01 January 2020</dd>
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">Company type</dt>
-            <dd class="govuk-summary-list__value">{{company.type | upper}}</dd>
+            <dd class="govuk-summary-list__value">Private limited Company</dd>
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">Registered office address</dt>
-            <dd class="govuk-summary-list__value">{{office_address}}
+            <dd class="govuk-summary-list__value">100 Long Street, Townville, United Kingdom, AA1 B22
             </dd>
           </div>
         </dl>

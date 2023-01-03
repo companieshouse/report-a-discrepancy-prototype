@@ -6,6 +6,7 @@ Check your answers before submitting your report – {{ serviceName }} – GOV.U
 
 {% block beforeContent %}
 {% include "../includes/phase-banner.html" %}
+{% include "../includes/account-banner.html" %}
   <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
@@ -26,7 +27,7 @@ Check your answers before submitting your report – {{ serviceName }} – GOV.U
             Name
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['full-name'] }}
+            {{ data['name'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="/obliged-entity-details-name">
@@ -43,7 +44,7 @@ Check your answers before submitting your report – {{ serviceName }} – GOV.U
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="/obliged-entity-email">
-              Change<span class="govuk-visually-hidden">name</span>
+              Change<span class="govuk-visually-hidden">email</span>
             </a>
           </dd>
         </div>
@@ -56,7 +57,7 @@ Check your answers before submitting your report – {{ serviceName }} – GOV.U
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="/obliged-entity-details-organisation">
-              Change<span class="govuk-visually-hidden">name</span>
+              Change<span class="govuk-visually-hidden">your-organisation-name</span>
             </a>
           </dd>
         </div>
@@ -69,7 +70,7 @@ Check your answers before submitting your report – {{ serviceName }} – GOV.U
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="/obliged-entity-type">
-              Change<span class="govuk-visually-hidden">name</span>
+              Change<span class="govuk-visually-hidden">obliged-type</span>
             </a>
           </dd>
         </div>
@@ -82,11 +83,11 @@ Check your answers before submitting your report – {{ serviceName }} – GOV.U
             Company number
           </dt>
           <dd class="govuk-summary-list__value">
-            {{company.company_number}}
+            {{ data['company-number'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="/company-lookup/company-number">
-              Change<span class="govuk-visually-hidden">name</span>
+              Change<span class="govuk-visually-hidden">company_number</span>
             </a>
           </dd>
         </div>
@@ -95,7 +96,7 @@ Check your answers before submitting your report – {{ serviceName }} – GOV.U
             Company name
           </dt>
           <dd class="govuk-summary-list__value">
-            {{company.company_name}}
+            Big Shop LTD
           </dd>
           <dd class="govuk-summary-list__actions"></dd>
         </div>
@@ -108,7 +109,7 @@ Check your answers before submitting your report – {{ serviceName }} – GOV.U
             Name of PSC
           </dt>
           <dd class="govuk-summary-list__value">
-            {{pscSingle.name}}
+            {{ data['psc-name'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="/discrepancy-details/psc-names">
@@ -121,8 +122,9 @@ Check your answers before submitting your report – {{ serviceName }} – GOV.U
             Type of discrepancy
           </dt>
           <dd class="govuk-summary-list__value">
+            {{ data['psc-options'] }}
             <ul class="govuk-list govuk-list--bullet">
-                <li>{{ feature }}</li>
+              
             </ul>
           </dd>
           <dd class="govuk-summary-list__actions">
