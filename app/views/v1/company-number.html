@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+What is the company number for the PSC with the discrepancy – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "../includes/phase-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="confirm-company" method="post">
+      
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="company-number">
+            What is the company number for the PSC with the discrepancy?
+            </label>
+          </h1>
+          <div id="event-name-hint" class="govuk-hint">
+            A company number is 8 characters long.
+          </div>
+          <input class="govuk-input govuk-!-width-one-third" id="company-number" name="company-number" type="text">
+        </div>
+
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              How do I find the company number?
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p>You can find this by searching for the company on the <a target='blank' href='https://beta.companieshouse.gov.uk/'>Companies House register (opens in a new tab)</a>.</p>
+          </div>
+        </details>
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

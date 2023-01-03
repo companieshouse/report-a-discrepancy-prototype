@@ -1,8 +1,12 @@
-<!--Extend from seperate layout to exclude service title from header<!-->
-{% extends "layouts/govuk-header.html" %}
+{% set title = "" %}
+{% extends "layouts/main.html" %}
+
+{% set serviceName %}
+{{title}}
+{% endset%}
 
 {% block pageTitle %}
-  {{ serviceName }} – GOV.UK Prototype Kit
+  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -242,7 +246,7 @@
     </p>
     {{ govukButton({
       text: "Start now",
-      href: "../sign-in/sign-in",
+      href: "../v1/sign-in",
       isStartButton: true
     }) }}
     <p class="govuk-body govuk-!-font-weight-bold">Before you start</p>

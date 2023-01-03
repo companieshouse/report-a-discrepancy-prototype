@@ -1,0 +1,89 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+What type of discrepancy are you reporting for xxxx – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "../includes/phase-banner.html" %} 
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="discrepancy-details" method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="psc-options-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                What type of discrepancy are you reporting for xxxx?
+              </h1>
+            </legend>
+            <div id="psc-options-hint" class="govuk-hint">
+              Select all that apply.
+            </div>
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="psc-options" name="psc-options" type="checkbox" value="name">
+                <label class="govuk-label govuk-checkboxes__label" for="psc-options">
+                  Name
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="psc-options-2" name="psc-options" type="checkbox" value="nature-of-control">
+                <label class="govuk-label govuk-checkboxes__label" for="psc-options-2">
+                  Nature of control
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="psc-options-3" name="psc-options" type="checkbox" value="date-of-birth">
+                <label class="govuk-label govuk-checkboxes__label" for="psc-options-3">
+                  Date of birth
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="psc-options-4" name="psc-options" type="checkbox" value="nationality">
+                <label class="govuk-label govuk-checkboxes__label" for="psc-options-4">
+                  Nationality
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="psc-options-5" name="psc-options" type="checkbox" value="correspondence-address">
+                <label class="govuk-label govuk-checkboxes__label" for="psc-options-5">
+                  Correspondence address
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="psc-options-6" name="psc-options" type="checkbox" value="notified-date">
+                <label class="govuk-label govuk-checkboxes__label" for="psc-options-6">
+                  Notified date
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="psc-options-7" name="psc-options" type="checkbox" value="country-of-residence">
+                <label class="govuk-label govuk-checkboxes__label" for="psc-options-7">
+                  Country of residence
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="psc-options-8" name="psc-options" type="checkbox" value="other-reason">
+                <label class="govuk-label govuk-checkboxes__label" for="psc-options-8">
+                  Other reason
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

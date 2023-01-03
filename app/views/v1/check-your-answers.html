@@ -1,0 +1,166 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Check your answers before submitting your report – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../includes/phase-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-l">
+        Check your answers before submitting your report
+      </h1>
+
+      <h2 class="govuk-heading-m">Personal details</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['full-name'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/obliged-entity-details-name">
+              Change<span class="govuk-visually-hidden">name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Email address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['email'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/obliged-entity-email">
+              Change<span class="govuk-visually-hidden">name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Organisation name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['your-organisation-name'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/obliged-entity-details-organisation">
+              Change<span class="govuk-visually-hidden">name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Organisation type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['obliged-type'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/obliged-entity-type">
+              Change<span class="govuk-visually-hidden">name</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-m">Company details for the PSC with the discrepancy</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Company number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{company.company_number}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/company-lookup/company-number">
+              Change<span class="govuk-visually-hidden">name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Company name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{company.company_name}}
+          </dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-m">Discrepancy details</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Name of PSC
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{pscSingle.name}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/discrepancy-details/psc-names">
+              Change<span class="govuk-visually-hidden">name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Type of discrepancy
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <ul class="govuk-list govuk-list--bullet">
+                <li>{{ feature }}</li>
+            </ul>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/discrepancy-details/psc-person">
+              Change<span class="govuk-visually-hidden">name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            More information about the discrepancy
+          </dt>
+          <dd class="govuk-summary-list__value">{{ data['more-detail'] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/discrepancy-details/other-info">
+              Change<span class="govuk-visually-hidden">name</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-m">Now submit your report</h2>
+      <p class="govuk-body">By submitting this report you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+      <form class="form" action="confirmation" method="post">
+
+        <button class="govuk-button" data-module="govuk-button">Submit report</button>
+
+      </form>
+    </div>
+  </div>
+
+
+
+    </div>
+  </div>
+
+{% endblock %}

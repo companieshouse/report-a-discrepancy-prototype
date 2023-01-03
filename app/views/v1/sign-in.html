@@ -1,0 +1,50 @@
+{% set title = "" %}
+{% extends "layouts/main.html" %}
+
+{% set serviceName %}
+{{title}}
+{% endset%}
+
+{% block pageTitle %}
+  Sign in – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Sign in to Companies House</h1>
+    <p class="govuk-body govuk-hint">You cannot use your WebFiling details to sign in. You must sign in to or register a Companies House account.</p>
+    
+    <form action="obliged-entity-type" method="post" class="form">
+
+      <div class="govuk-form-group" id="email">
+        <label class="govuk-label govuk-!-font-weight-bold" for="email-input">
+          Email address
+        </label>
+        <input class="govuk-input" id="email-input" name="email-input" type="text" autocomplete="email">
+      </div>
+
+
+      <div class="govuk-form-group" id="password">
+        <label class="govuk-label govuk-!-font-weight-bold" for="email-input">
+          Password
+        </label>
+        <input class="govuk-input" id="password-input" name="password-input" type="text">
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Sign in
+      </button>
+    </form>
+
+    <p>
+      <a href="#" class="govuk-link govuk-link--no-visited-state">Register a new account</a>
+    </p>
+    <p>
+      <a href="#" class="govuk-link govuk-link--no-visited-state">I've forgotten my password</a>
+    </p>
+  </div>
+</div>
+
+{% endblock %}

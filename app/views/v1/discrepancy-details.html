@@ -1,0 +1,49 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Give us more information about the discrepancy – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "../includes/phase-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Give us more information about the discrepancy
+      </h1>
+
+      <p class="govuk-body">You should tell us:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>what information on the PSC register is incorrect
+        </li>
+        <li>the correct information as you believe it should be shown on the register
+        </li>
+        <li>any other relevant information about the discrepancy that supports the report
+        </li>
+      </ul>
+
+      <p class="govuk-body">If you’re reporting a missing PSC, you need to tell us the name of the PSC who is missing.</p>
+
+      <form class="form" action="check-your-answers" method="post">
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="more-detail">
+            Discrepancy information
+          </label>
+          <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5"></textarea>
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
