@@ -18,12 +18,23 @@ What is the company number for the PSC with the discrepancy – {{ serviceName }
       <form class="form" action="confirm-company" method="post">
       
         <div class="govuk-form-group">
-          <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="company-number">
-            What is the company number for the PSC with the discrepancy?
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--l" for="company-number">
+              <!--Check if user selected PSC or BO on previous page and change content to suit-->
+              {% if data['discrepancy-type'] == 'PSC' %}
+                What is the company number for the PSC with the discrepancy?
+              {% else %}
+                What is the overseas entity number for the beneficial owner with the discrepancy?
+              {% endif %}
             </label>
           </h1>
           <div id="event-name-hint" class="govuk-hint">
-            A company number is 8 characters long.
+            <!--Check if user selected PSC or BO on previous page and change content to suit-->
+            {% if data['discrepancy-type'] == 'PSC' %}
+              A company number is 8 characters long.
+            {% else %}
+              A overseas entity number starts with OE and is followed by 6 numbers.
+            {% endif %}
           </div>
           <input class="govuk-input govuk-!-width-one-third" id="company-number" name="company-number" type="text">
         </div>
@@ -31,7 +42,13 @@ What is the company number for the PSC with the discrepancy – {{ serviceName }
         <details class="govuk-details" data-module="govuk-details">
           <summary class="govuk-details__summary">
             <span class="govuk-details__summary-text">
-              How do I find the company number?
+              <!--Check if user selected PSC or BO on previous page and change content to suit-->
+              {% if data['discrepancy-type'] == 'PSC' %}
+                How do I find the company number?
+             {% else %}
+                How do I find the Overseas entity number?
+             {% endif %}
+              
             </span>
           </summary>
           <div class="govuk-details__text">

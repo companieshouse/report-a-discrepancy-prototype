@@ -21,21 +21,26 @@ Which PSC has a discrepancy for {{company_name}} – {{ serviceName }} – GOV.U
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
-                Which PSC has a discrepancy for Big Company LTD?
+                <!--Check if user selected PSC or BO on previous page and change content to suit-->
+                {% if data['discrepancy-type'] == 'PSC' %}
+                  Which PSC has a discrepancy for Big Company LTD?
+                {% else %}
+                  Which beneficial owner has a discrepancy for Big Company LTD?
+                {% endif %}
               </h1>
             </legend>
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="psc-name" name="psc-name" type="radio" value="Lisa Robinson">
+                <input class="govuk-radios__input" id="psc-name" name="psc-name" type="radio" value="legal-person-1">
                 <label class="govuk-label govuk-radios__label" for="psc-name">
-                  Lisa Robinson
+                  Legal person 1
                 </label>
                 <div id="psc-item-hint" class="govuk-hint govuk-radios__hint">Born August 1980</div>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="psc-name-2" name="psc-name" type="radio" value="Bob Smith">
+                <input class="govuk-radios__input" id="psc-name-2" name="psc-name" type="radio" value="legal-person-2">
                 <label class="govuk-label govuk-radios__label" for="psc-name-2">
-                  Bob Smith
+                  Legal person 2
                 </label>
                 <div id="psc-item-hint" class="govuk-hint govuk-radios__hint">Born January 2000</div>
               </div>

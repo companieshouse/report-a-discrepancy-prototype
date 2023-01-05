@@ -31,22 +31,35 @@
       </ul>
 
       <p class="govuk-body">The email may take a few minutes to arrive. If you do not receive it within 24 hours, email
-        <a class="govuk-link" href="mailto:pscdiscrepancies@companieshouse.gov.uk">pscdiscrepancies@companieshouse.gov.uk</a>.
+        <a class="govuk-link" href="mailto:discrepancies@companieshouse.gov.uk">discrepancies@companieshouse.gov.uk</a>.
       </p>
-      <p class="govuk-body">We'll investigate the discrepancy, which could take some time. 
-        We cannot tell you how long it will take because each case is different. We will not 
-        tell the company who has reported a discrepancy about their PSC register information.
-      </p>
-      <p class="govuk-body">If we find that the reported discrepancy needs to be corrected, 
-        we’ll contact the company and ask that they resolve it to make sure the PSC register 
-        is up to date. If the discrepancy is not resolved by the company, we may remove
-        the incorrect information from the register.
-      </p>
+      <!--Check if user selected PSC or BO on previous page and change content to suit-->
+      {% if data['discrepancy-type'] == 'PSC' %}
+        <p class="govuk-body">We'll investigate the discrepancy, which could take some time. 
+          We cannot tell you how long it will take because each case is different. We will not 
+          tell the company who has reported a discrepancy about their PSC register information.
+        </p>
+        <p class="govuk-body">If we find that the reported discrepancy needs to be corrected, 
+          we’ll contact the company and ask that they resolve it to make sure the PSC register 
+          is up to date. If the discrepancy is not resolved by the company, we may remove
+          the incorrect information from the register.
+        </p>
+      {% else %}
+        <p class="govuk-body">We'll investigate the discrepancy, which could take some time. 
+          We cannot tell you how long it will take because each case is different. We will not 
+          tell the company who has reported a discrepancy about their beneficial owner register information.
+        </p>
+        <p class="govuk-body">If we find that the reported discrepancy needs to be corrected, 
+          we’ll contact the company and ask that they resolve it to make sure the beneficial owner register 
+          is up to date. If the discrepancy is not resolved by the company, we may remove
+          the incorrect information from the register.
+        </p>
+      {% endif %}
       <p class="govuk-body">If you have any further information concerning this discrepancy, email
-        <a class="govuk-link" href="mailto:pscdiscrepancies@companieshouse.gov.uk">pscdiscrepancies@companieshouse.gov.uk</a>.
+        <a class="govuk-link" href="mailto:discrepancies@companieshouse.gov.uk">discrepancies@companieshouse.gov.uk</a>.
       </p>
       <p class="govuk-body">
-        <a href="/govuk/guidance">Submit another PSC discrepancy report</a>
+        <a href="guidance">Submit another discrepancy report</a>
       </p>
       <h3 class="govuk-heading-m">Feedback</h3>
       <p class="govuk-body">This is a new service. Help us improve it by completing our
