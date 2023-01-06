@@ -15,7 +15,7 @@ What type of discrepancy are you reporting for xxxx – {{ serviceName }} – GO
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="discrepancy-catagory" method="post">
+      <form class="form" action="../../update-discrepancy-type" method="post">
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="psc-options-hint">
@@ -95,6 +95,9 @@ What type of discrepancy are you reporting for xxxx – {{ serviceName }} – GO
             </div>
           </fieldset>
         </div>
+
+        <input type="hidden" name="discrepancy-count" id="discrepancy-count" value="-1" />
+        <input type="hidden" name="disc-type" id="disc-type" value="{{ data['psc-options'][0] }}" />
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
 

@@ -138,19 +138,27 @@ Check your answers before submitting your report – {{ serviceName }} – GOV.U
             </a>
           </dd>
         </div>
+
+        
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Type of discrepancy
           </dt>
           <dd class="govuk-summary-list__value">
             {% if data['psc-options'] %}
-              <ul class="govuk-list">
+            <table class="govuk-table">
+              <tbody class="govuk-table__body">
+                <!--Loop through checked checkboxes-->
                 {% for feature in data['psc-options'] %}
-                  <li>{{ feature }}</li>
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">{{ feature }}</td>
+                  <td class="govuk-table__cell">Money laundering or terrorism financing</td>
+                </tr>
                 {% endfor %}
-              {% else %}
-                No reason selected
-              {% endif %}
+              </tbody>
+            </table>
+            {% endif %}
+
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="psc-discrepancy-options">
