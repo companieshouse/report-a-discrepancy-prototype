@@ -2,11 +2,18 @@
 // For guidance on how to create routes see:
 // https://prototype-kit.service.gov.uk/docs/create-routes
 // 
-
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
 // Add your routes here
+
+router.post('/throwing-dice', function(request, response) {
+
+  var dice = Math.ceil(Math.random()*6)
+  response.locals.dice = dice
+  response.render('v1/dice')
+
+})
 
 // Run this code when a form is submitted to 'juggling-balls-answer'
 router.post('/update-discrepancy-type', function (req, res) {
@@ -30,3 +37,21 @@ router.post('/update-discrepancy-type', function (req, res) {
      }
   
 })
+
+
+router.post('/v1/obliged-entity-type', function (req, res) {
+  var errors = []
+  if (typeof req.session.data['obliged-type'] === 'undefined') {
+    errors.push({
+      text: 'Select what type of obliged entity you are',
+      href: '#obliged-type'
+    })
+    res.render('v1/obliged-entity-type', {
+      errorType: true,
+      errorList: errors
+    })
+  } else {
+    res.redirect('/v1/obliged-entity-details-organisation')
+  }
+
+  })

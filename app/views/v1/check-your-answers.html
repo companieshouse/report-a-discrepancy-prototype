@@ -119,7 +119,7 @@ Check your answers before submitting your report – {{ serviceName }} – GOV.U
       </dl>
 
       <h2 class="govuk-heading-m">Discrepancy details</h2>
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             <!--Check if user selected PSC or BO on previous page and change content to suit-->
@@ -138,46 +138,49 @@ Check your answers before submitting your report – {{ serviceName }} – GOV.U
             </a>
           </dd>
         </div>
-
+      </dl>
         
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Type of discrepancy
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {% if data['psc-options'] %}
-            <table class="govuk-table">
-              <tbody class="govuk-table__body">
-                <!--Loop through checked checkboxes-->
-                {% for feature in data['psc-options'] %}
-                <tr class="govuk-table__row">
-                  <td class="govuk-table__cell">{{ feature }}</td>
-                  <td class="govuk-table__cell">Money laundering or terrorism financing</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-            {% endif %}
+      {% if data['psc-options'] %}
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Types of discrepancy</th>
+            <th scope="col" class="govuk-table__header">Discrepancy category</th>
+            <th scope="col" class="govuk-table__header" style="text-align:right;"><a class="govuk-link govuk-body" href="obliged-entity-type">
+              Change<span class="govuk-visually-hidden">psc-discrepancy-options</span>
+            </a></th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <!--Loop through checked checkboxes-->
+          {% for feature in data['psc-options'] %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">{{ feature }}</td>
+            <td class="govuk-table__cell">Money laundering or terrorism financing</td>
+            <td class="govuk-table__cell"></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
 
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="psc-discrepancy-options">
-              Change<span class="govuk-visually-hidden">name</span>
-            </a>
-          </dd>
-        </div>
+      {% endif %}
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             More information about the discrepancy
           </dt>
-          <dd class="govuk-summary-list__value">{{ data['more-detail'] }}</dd>
+          <dd class="govuk-summary-list__value">
+            {{ data['more-detail'] }}
+          </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="discrepancy-details">
+            <a class="govuk-link" href="psc-name">
               Change<span class="govuk-visually-hidden">name</span>
             </a>
           </dd>
         </div>
       </dl>
+
     </div>
   </div>
 
