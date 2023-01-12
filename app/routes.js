@@ -33,7 +33,7 @@ router.post('/update-discrepancy-type', function (req, res) {
         res.redirect('/v1/discrepancy-details')
      } else {
         // reload page with updated type
-        res.redirect('/v1/discrepancy-catagory')
+        res.redirect('/v1/discrepancy-category')
      }
   
 })
@@ -55,3 +55,9 @@ router.post('/v1/obliged-entity-type', function (req, res) {
   }
 
   })
+
+
+ 
+
+
+  
