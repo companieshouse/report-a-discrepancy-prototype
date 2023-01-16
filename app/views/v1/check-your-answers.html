@@ -143,10 +143,26 @@ Check your answers before submitting your report – {{ serviceName }} – GOV.U
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
+            Types of discrepancy
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <!--Loop through checked checkboxes-->
+            {% for feature in data['pscOptions'] %}
+            {{ feature }}<br>
+            {% endfor %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="company-number">
+              Change<span class="govuk-visually-hidden">company_number</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
             More information about the discrepancy
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['more-detail'] }}
+            {{ data['discrepancyInfo'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="psc-name">
