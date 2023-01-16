@@ -6,7 +6,6 @@ Which PSC has a discrepancy for {{company_name}} – {{ serviceName }} – GOV.U
 
 {% block beforeContent %}
   {% include "../includes/phase-banner.html" %}
-  {% include "../includes/account-banner.html" %}
   <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
@@ -29,7 +28,7 @@ Which PSC has a discrepancy for {{company_name}} – {{ serviceName }} – GOV.U
             <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                 <h1 class="govuk-fieldset__heading">
-                  What does the discrepancy of type '{{ data['disc-type'] }}' relate to?
+                  What does the discrepancy you are reporting relate to?
                 </h1>
               </legend>
               <p id="where-do-you-live-error" class="govuk-error-message">
@@ -37,15 +36,28 @@ Which PSC has a discrepancy for {{company_name}} – {{ serviceName }} – GOV.U
               </p>
               <div class="govuk-radios" data-module="govuk-radios">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="DiscrepancyCategory" name="DiscrepancyCategory" type="radio" value="money-laundering">
-                  <label class="govuk-label govuk-radios__label" for="DiscrepancyCategory">
-                    Money laundering or terrorism financing
+                  <input class="govuk-radios__input" id="discrepancyCategory" name="discrepancyCategory" type="radio" value="money-laundering">
+                  <label class="govuk-label govuk-radios__label" for="discrepancyCategory">
+                    Money laundering
                   </label>
                 </div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="DiscrepancyCategory-2" name="DiscrepancyCategory" type="radio" value="conceal-details">
-                  <label class="govuk-label govuk-radios__label" for="DiscrepancyCategory-2">
+                  <input class="govuk-radios__input" id="discrepancyCategory-2" name="discrepancyCategory" type="radio" value="terrorism-financing">
+                  <label class="govuk-label govuk-radios__label" for="discrepancyCategory-2">
+                    Terrorism financing
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="discrepancyCategory-3" name="discrepancyCategory" type="radio" value="conceal-details">
+                  <label class="govuk-label govuk-radios__label" for="discrepancyCategory-3">
                     It appears to conceal details of the business of the customer
+                  </label>
+                </div>
+                <div class="govuk-radios__divider">or</div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="discrepancyCategory-4" name="discrepancyCategory" type="radio" value="something-else">
+                  <label class="govuk-label govuk-radios__label" for="discrepancyCategory-4">
+                    Something else
                   </label>
                 </div>
               </div>
@@ -56,20 +68,33 @@ Which PSC has a discrepancy for {{company_name}} – {{ serviceName }} – GOV.U
             <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                 <h1 class="govuk-fieldset__heading">
-                  What does the discrepancy of type '{{ data['disc-type'] }}' relate to?
+                  What does the discrepancy you are reporting relate to?
                 </h1>
               </legend>
               <div class="govuk-radios" data-module="govuk-radios">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="DiscrepancyCategory" name="DiscrepancyCategory" type="radio" value="money-laundering">
-                  <label class="govuk-label govuk-radios__label" for="DiscrepancyCategory">
-                    Money laundering or terrorism financing
+                  <input class="govuk-radios__input" id="discrepancyCategory" name="discrepancyCategory" type="radio" value="Money laundering">
+                  <label class="govuk-label govuk-radios__label" for="discrepancyCategory">
+                    Money laundering
                   </label>
                 </div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="DiscrepancyCategory-2" name="DiscrepancyCategory" type="radio" value="conceal-details">
-                  <label class="govuk-label govuk-radios__label" for="DiscrepancyCategory-2">
+                  <input class="govuk-radios__input" id="discrepancyCategory-2" name="discrepancyCategory" type="radio" value="Terrorism financing">
+                  <label class="govuk-label govuk-radios__label" for="discrepancyCategory-2">
+                    Terrorism financing
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="discrepancyCategory-3" name="discrepancyCategory" type="radio" value="Conceal details of the business of the customer">
+                  <label class="govuk-label govuk-radios__label" for="discrepancyCategory-3">
                     It appears to conceal details of the business of the customer
+                  </label>
+                </div>
+                <div class="govuk-radios__divider">or</div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="discrepancyCategory-4" name="discrepancyCategory" type="radio" value="something-else">
+                  <label class="govuk-label govuk-radios__label" for="discrepancyCategory-4">
+                    Something else
                   </label>
                 </div>
               </div>

@@ -27,7 +27,7 @@
       <form class="form" action="{{currentUrl}}" method="post">
 
         <!--Check if user selected PSC or BO on previous page and change content to suit-->
-        {% if data['discrepancy-type'] == 'PSC' %}
+        {% if data['discrepancyType'] == 'PSC' %}
           <dl class="govuk-summary-list">
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">Company name</dt>
@@ -64,7 +64,7 @@
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">Overseas entity number</dt>
-              <dd class="govuk-summary-list__value">{{ data['company-number'] }}</dd>
+              <dd class="govuk-summary-list__value">{{ data['companyNumber'] }}</dd>
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">Status</dt>

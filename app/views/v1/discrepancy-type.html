@@ -6,7 +6,6 @@ Which PSC has a discrepancy for {{company_name}} – {{ serviceName }} – GOV.U
 
 {% block beforeContent %}
   {% include "../includes/phase-banner.html" %}
-  {% include "../includes/account-banner.html" %}
   <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
@@ -42,7 +41,7 @@ Which PSC has a discrepancy for {{company_name}} – {{ serviceName }} – GOV.U
                   </label>
                 </div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="discrepancyType-2" name="discrepancyType" type="radio" value="BO">
+                  <input class="govuk-radios__input" id="discrepancyType-2" name="discrepancyType" type="radio" value="beneficial owner">
                   <label class="govuk-label govuk-radios__label" for="discrepancyType-2">
                     Report a beneficial owners discrepancy
                   </label>
@@ -67,11 +66,11 @@ Which PSC has a discrepancy for {{company_name}} – {{ serviceName }} – GOV.U
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="discrepancyType" name="discrepancyType" type="radio" value="PSC">
                   <label class="govuk-label govuk-radios__label" for="discrepancyType">
-                    Report a PSC discrepancy
+                    Report a PSC discrepancy {{ data['discrepancyCategory'] }}
                   </label>
                 </div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="discrepancyType-2" name="discrepancyType" type="radio" value="BO">
+                  <input class="govuk-radios__input" id="discrepancyType-2" name="discrepancyType" type="radio" value="beneficial owner">
                   <label class="govuk-label govuk-radios__label" for="discrepancyType-2">
                     Report a beneficial owners discrepancy
                   </label>

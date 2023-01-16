@@ -68,7 +68,7 @@ const router = govukPrototypeKit.requests.setupRouter()
     if (req.session.data['discrepancyInfo'] === ''){
       // No value so add error to array
       errors.push({
-        text: 'Enter the information that is incorrect for the PSC',
+        text: 'Enter the information that is incorrect',
         href: '#discrepancyInfo'
       })
 
@@ -156,7 +156,7 @@ const router = govukPrototypeKit.requests.setupRouter()
       })
     } else {
       // User inputted value so move to next page
-      res.redirect('/v1/discrepancy-category')
+      res.redirect('/v1/discrepancy-details')
     }
   })
 
@@ -171,14 +171,15 @@ const router = govukPrototypeKit.requests.setupRouter()
   
   router.post('/v1/discrepancy-category', function (req, res) {
     // Create empty array
-    var errors = []
+    var errors = [];
+    var test = req.session.data['discrepancyCategory'];
 
     // Check if user has filled out a value
-    if (typeof req.session.data['DiscrepancyCategory'] === 'undefined') {
+    if (typeof req.session.data['discrepancyCategory'] === 'undefined') {
       // No value so add error to array
       errors.push({
         text: 'Select what the discrepancy you are reporting relates to',
-        href: '#DiscrepancyCategory'
+        href: '#discrepancyCategory'
       })
 
       // Re-show page with error value as true so errors will show
@@ -186,9 +187,12 @@ const router = govukPrototypeKit.requests.setupRouter()
         errorDiscrepancyCategory: true,
         errorList: errors
       })
+    } else if (test == 'something-else')  {
+      // User inputted value so move to next page
+      res.redirect('/v1/no-category')
     } else {
       // User inputted value so move to next page
-      res.redirect('/v1/discrepancy-details')
+      res.redirect('/v1/discrepancy-type')
     }
   })
 
@@ -252,7 +256,7 @@ const router = govukPrototypeKit.requests.setupRouter()
       })
     } else {
       // User inputted value so move to next page
-      res.redirect('/v1/company-number')
+      res.redirect('/v1/sign-in')
     }
   })
 
@@ -316,7 +320,7 @@ const router = govukPrototypeKit.requests.setupRouter()
       })
     } else {
       // User inputted value so move to next page
-      res.redirect('/v1/discrepancy-type')
+      res.redirect('/v1/company-number')
     }
   })
 

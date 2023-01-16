@@ -27,7 +27,7 @@ Check your answers before submitting your report – {{ serviceName }} – GOV.U
             Name
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['name'] }}
+            {{ data['fullName'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="obliged-entity-details-name">
@@ -53,7 +53,7 @@ Check your answers before submitting your report – {{ serviceName }} – GOV.U
             Organisation name
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['your-organisation-name'] }}
+            {{ data['organisationName'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="obliged-entity-details-organisation">
@@ -66,7 +66,7 @@ Check your answers before submitting your report – {{ serviceName }} – GOV.U
             Organisation type
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['obliged-type'] }}
+            {{ data['obligedType'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="obliged-entity-type">
@@ -76,25 +76,20 @@ Check your answers before submitting your report – {{ serviceName }} – GOV.U
         </div>
       </dl>
 
-      <!--Check if user selected PSC or BO on previous page and change content to suit-->
-      {% if data['discrepancy-type'] == 'PSC' %}
-        <h2 class="govuk-heading-m">Company details for the PSC with the discrepancy</h2>
-      {% else %}
-        <h2 class="govuk-heading-m">Company details for the beneficial owner with the discrepancy</h2>
-      {% endif %}
+      <h2 class="govuk-heading-m">Company details for the {{ data['discrepancyType'] }} with the discrepancy</h2>
       
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             <!--Check if user selected PSC or BO on previous page and change content to suit-->
-            {% if data['discrepancy-type'] == 'PSC' %}
+            {% if data['discrepancyType'] == 'PSC' %}
               Company number
             {% else %}
               Overseas entity number
             {% endif %}
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['company-number'] }}
+            {{ data['companyNumber'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="company-number">
@@ -105,7 +100,7 @@ Check your answers before submitting your report – {{ serviceName }} – GOV.U
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             <!--Check if user selected PSC or BO on previous page and change content to suit-->
-            {% if data['discrepancy-type'] == 'PSC' %}
+            {% if data['discrepancyType'] == 'PSC' %}
               Company name
             {% else %}
               Overseas entity name
@@ -119,18 +114,13 @@ Check your answers before submitting your report – {{ serviceName }} – GOV.U
       </dl>
 
       <h2 class="govuk-heading-m">Discrepancy details</h2>
-      <dl class="govuk-summary-list">
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            <!--Check if user selected PSC or BO on previous page and change content to suit-->
-            {% if data['discrepancy-type'] == 'PSC' %}
-              Name of PSC
-            {% else %}
-              Name of beneficial owner
-            {% endif %}
+              Name of {{ data['discrepancyType'] }} 
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['psc-name'] }}
+            {{ data['pscName'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="psc-name">
@@ -138,34 +128,19 @@ Check your answers before submitting your report – {{ serviceName }} – GOV.U
             </a>
           </dd>
         </div>
-      </dl>
-        
-      {% if data['psc-options'] %}
-      <table class="govuk-table">
-        <thead class="govuk-table__head">
-          <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">Types of discrepancy</th>
-            <th scope="col" class="govuk-table__header">Discrepancy category</th>
-            <th scope="col" class="govuk-table__header" style="text-align:right;"><a class="govuk-link govuk-body" href="obliged-entity-type">
-              Change<span class="govuk-visually-hidden">psc-discrepancy-options</span>
-            </a></th>
-          </tr>
-        </thead>
-        <tbody class="govuk-table__body">
-          <!--Loop through checked checkboxes-->
-          {% for feature in data['psc-options'] %}
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">{{ feature }}</td>
-            <td class="govuk-table__cell">Money laundering or terrorism financing</td>
-            <td class="govuk-table__cell"></td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-
-      {% endif %}
-
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Discrepancy category
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['discrepancyCategory'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="company-number">
+              Change<span class="govuk-visually-hidden">company_number</span>
+            </a>
+          </dd>
+        </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             More information about the discrepancy

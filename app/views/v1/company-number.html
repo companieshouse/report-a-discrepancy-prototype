@@ -12,7 +12,7 @@
 
 {% block content %}
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds-from-desktop">
+    <div class="govuk-grid-column-two-thirds">
       {% if errorNum == true %}
         {{ govukErrorSummary({
           titleText: "There is a problem",
@@ -21,47 +21,32 @@
       {% endif %}
       <form action="{{currentUrl}}" method="post">
         {% if errorNum == true %}
-          {{ govukInput({
-            label: {
-              text: "What is the company number for the PSC with the discrepancy?",
-              classes: "govuk-label--l",
-              isPageHeading: true
-            },
-            hint: {
-              text: "A company number is 8 characters long."
-            },
-            id: "companyNumber",
-            value: data['companyNumber'],
-            name: "companyNumber",
-            classes: "govuk-!-width-two-thirds",
-            hint: {
-              text: "A company number is 8 characters long."
-            },
-            errorMessage: {
-              text: "The company number must be 8 characters long"
-            },
-            attributes: {
-              spellcheck: "false"
-            }
-          }) }}
+        <div class="govuk-form-group govuk-form-group--error">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--l" for="companyNumber">
+              What is the company number for the {{ data['discrepancyType'] }} with the discrepancy?
+            </label>
+          </h1>
+          <div id="companyNumber-hint" class="govuk-hint">
+            A company number is 8 characters long.
+          </div>
+          <p id="companyNumber-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> The company number must be 8 characters long
+          </p>
+          <input class="govuk-input govuk-!-width-two-thirds" id="companyNumber" name="companyNumber" type="text">
+        </div>
         {% else %}
-          {{ govukInput({
-            label: {
-              text: "What is the company number for the PSC with the discrepancy?",
-              classes: "govuk-label--l",
-              isPageHeading: true
-            },
-            hint: {
-              text: "A company number is 8 characters long."
-            },
-            id: "companyNumber",
-            name: "companyNumber",
-            value: data['companyNumber'],
-            classes: "govuk-!-width-two-thirds",
-            attributes: {
-              spellcheck: "false"
-            }
-          }) }}
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--l" for="companyNumber">
+              What is the company number for the {{ data['discrepancyType'] }} with the discrepancy?
+            </label>
+          </h1>
+          <div id="companyNumber-hint" class="govuk-hint">
+            A company number is 8 characters long.
+          </div>
+          <input class="govuk-input govuk-!-width-two-thirds" id="companyNumber" name="companyNumber" type="text">
+        </div>
         {% endif %}
         {{ govukDetails({
           summaryText: "How do I find the company number?",

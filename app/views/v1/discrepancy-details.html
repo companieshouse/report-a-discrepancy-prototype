@@ -27,30 +27,17 @@ Give us more information about the discrepancy – {{ serviceName }} – GOV.UK 
 
         <p class="govuk-body">You should tell us:</p>
         
-        <!--Check if user selected PSC or BO on previous page and change content to suit-->
-        {% if data['discrepancy-type'] == 'PSC' %}
-          <ul class="govuk-list govuk-list--bullet">
-            <li>what information on the PSC register is incorrect
-            </li>
-            <li>the correct information as you believe it should be shown on the register
-            </li>
-            <li>any other relevant information about the discrepancy that supports the report
-            </li>
-          </ul>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>what information on the {{ data['discrepancyType'] }} register is incorrect
+          </li>
+          <li>the correct information as you believe it should be shown on the register
+          </li>
+          <li>any other relevant information about the discrepancy that supports the report
+          </li>
+        </ul>
 
-          <p class="govuk-body">If you’re reporting a missing PSC, you need to tell us the name of the PSC who is missing.</p>
-        {% else %}
-          <ul class="govuk-list govuk-list--bullet">
-            <li>what information on the benefical owner register is incorrect
-            </li>
-            <li>the correct information as you believe it should be shown on the register
-            </li>
-            <li>any other relevant information about the discrepancy that supports the report
-            </li>
-          </ul>
-
-          <p class="govuk-body">If you’re reporting a missing beneficial owner, you need to tell us the name of the beneficial owner who is missing.</p>
-        {% endif %}
+        <p class="govuk-body">If you’re reporting a missing {{ data['discrepancyType'] }}, you 
+          need to tell us the name of the {{ data['discrepancyType'] }} who is missing.</p>
 
         <form class="form" action="{{currentUrl}}" method="post">
           {% if errorDiscrepancyInfo == true %}
@@ -64,7 +51,7 @@ Give us more information about the discrepancy – {{ serviceName }} – GOV.UK 
               html: "Discrepancy information"
             },
             errorMessage: {
-              text: "Enter the information that is incorrect for the PSC"
+              text: "Enter the information that is incorrect"
             }
           }) }}
           {% else %}
