@@ -10,106 +10,155 @@
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds-from-desktop">
-    <form action="obliged-entity-details-organisation" method="post">
-
-      <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <h1 class="govuk-fieldset__heading">
-              What type of obliged entity are you?
-            </h1>
-          </legend>
-          <div class="govuk-radios" data-module="govuk-radios">
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="obliged-type" name="obliged-type" type="radio" value="Credit institution">
-              <label class="govuk-label govuk-radios__label" for="obliged-type">
-                Credit institution
-              </label>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="obliged-type-2" name="obliged-type" type="radio" value="Financial institution">
-              <label class="govuk-label govuk-radios__label" for="obliged-type-2">
-                Financial institution
-              </label>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="obliged-type-3" name="obliged-type" type="radio" value="Auditor, external accountant or tax advisor">
-              <label class="govuk-label govuk-radios__label" for="obliged-type-3">
-                Auditor, external accountant or tax advisor
-              </label>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="obliged-type-4" name="obliged-type" type="radio" value="Notary or independent legal professional">
-              <label class="govuk-label govuk-radios__label" for="obliged-type-4">
-                Notary or independent legal professional
-              </label>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="obliged-type-5" name="obliged-type" type="radio" value="Trust or company service provider">
-              <label class="govuk-label govuk-radios__label" for="obliged-type-5">
-                Trust or company service provider
-              </label>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="obliged-type-6" name="obliged-type" type="radio" value="Estate agent or intermediary">
-              <label class="govuk-label govuk-radios__label" for="obliged-type-6">
-                Estate agent or intermediary
-              </label>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="obliged-type-7" name="obliged-type" type="radio" value="Entity trading goods in cash over €10,000">
-              <label class="govuk-label govuk-radios__label" for="obliged-type-7">
-                Entity trading goods in cash over €10,000
-              </label>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="obliged-type-8" name="obliged-type" type="radio" value="Gambling service provider">
-              <label class="govuk-label govuk-radios__label" for="obliged-type-8">
-                Gambling service provider
-              </label>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="obliged-type-9" name="obliged-type" type="radio" value="Exchange service provider of fiat and virtual currencies">
-              <label class="govuk-label govuk-radios__label" for="obliged-type-9">
-                Exchange service provider of fiat and virtual currencies
-              </label>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="obliged-type-10" name="obliged-type" type="radio" value="Custodian wallet provider">
-              <label class="govuk-label govuk-radios__label" for="obliged-type-10">
-                Custodian wallet provider
-              </label>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="obliged-type-11" name="obliged-type" type="radio" value="Art dealer - galleries and auction houses">
-              <label class="govuk-label govuk-radios__label" for="obliged-type-11">
-                Art dealer - galleries and auction houses
-              </label>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="obliged-type-12" name="obliged-type" type="radio" value="Art dealer - free ports">
-              <label class="govuk-label govuk-radios__label" for="obliged-type-12">
-                Art dealer - free ports
-              </label>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="obliged-type-13" name="obliged-type" type="radio" value="Insolvency practitioner">
-              <label class="govuk-label govuk-radios__label" for="obliged-type-13">
-                Insolvency practitioner
-              </label>
-            </div>
-        </fieldset>
-      </div>
-
-      <p class="govuk-inset-text">If you’re not an obliged entity, do not use this service to report a person with significant control (PSC) discrepancy. If you want to update your PSC details, you can
-        <a class="govuk-link" href="https://www.gov.uk/file-changes-to-a-company-with-companies-house">tell Companies House about changes to your limited company</a>.</p>
-      <button class="govuk-button" data-module="govuk-button">
-        Continue
-      </button>
-    </form>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="{{currentUrl}}" method="post">
+        {% if errorType == true %}
+          {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: errorList
+          }) }}
+          {{ govukRadios({
+            idPrefix: "obligedType",
+            name: "obligedType",
+            errorMessage: {
+              text: "Select what type of obliged entity you are"
+            },
+            fieldset: {
+              legend: {
+                text: "What type of obliged entity are you?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "Credit institution",
+                text: "Credit institution"
+              },
+              {
+                value: "Financial institution",
+                text: "Financial institution"
+              },
+              {
+                value: "Auditor, external accountant or tax advisor",
+                text: "Auditor, external accountant or tax advisor"
+              },
+              {
+                value: "Notary or independent legal professional",
+                text: "Notary or independent legal professional"
+              },
+              {
+                value: "Trust or company service provider",
+                text: "Trust or company service provider"
+              },
+              {
+                value: "Estate agent or intermediary",
+                text: "Estate agent or intermediary"
+              },
+              {
+                value: "Entity trading goods in cash over €10,000",
+                text: "Entity trading goods in cash over €10,000"
+              },
+              {
+                value: "Gambling service provider",
+                text: "Gambling service provider"
+              },
+              {
+                value: "Exchange service provider of fiat and virtual currencies",
+                text: "Exchange service provider of fiat and virtual currencies"
+              },
+              {
+                value: "Custodian wallet provider",
+                text: "Custodian wallet provider"
+              },
+              {
+                value: "Art dealer - galleries and auction houses",
+                text: "Art dealer - galleries and auction houses"
+              },
+              {
+                value: "Art dealer - free ports",
+                text: "Art dealer - free ports"
+              },
+              {
+                value: "Insolvency practitioner",
+                text: "Insolvency practitioner"
+              }
+            ]
+          }) }}
+        {% else %}
+          {{ govukRadios({
+            idPrefix: "obligedType",
+            name: "obligedType",
+            fieldset: {
+              legend: {
+                text: "What type of obliged entity are you?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "Credit institution",
+                text: "Credit institution"
+              },
+              {
+                value: "Financial institution",
+                text: "Financial institution"
+              },
+              {
+                value: "Auditor, external accountant or tax advisor",
+                text: "Auditor, external accountant or tax advisor"
+              },
+              {
+                value: "Notary or independent legal professional",
+                text: "Notary or independent legal professional"
+              },
+              {
+                value: "Trust or company service provider",
+                text: "Trust or company service provider"
+              },
+              {
+                value: "Estate agent or intermediary",
+                text: "Estate agent or intermediary"
+              },
+              {
+                value: "Entity trading goods in cash over €10,000",
+                text: "Entity trading goods in cash over €10,000"
+              },
+              {
+                value: "Gambling service provider",
+                text: "Gambling service provider"
+              },
+              {
+                value: "Exchange service provider of fiat and virtual currencies",
+                text: "Exchange service provider of fiat and virtual currencies"
+              },
+              {
+                value: "Custodian wallet provider",
+                text: "Custodian wallet provider"
+              },
+              {
+                value: "Art dealer - galleries and auction houses",
+                text: "Art dealer - galleries and auction houses"
+              },
+              {
+                value: "Art dealer - free ports",
+                text: "Art dealer - free ports"
+              },
+              {
+                value: "Insolvency practitioner",
+                text: "Insolvency practitioner"
+              }
+            ]
+          }) }}
+        {% endif %}
+        <p class="govuk-inset-text">If you’re not an obliged entity, do not use this service to report a person with significant control (PSC) discrepancy. If you want to update your PSC details, you can
+          <a class="govuk-link" href="https://www.gov.uk/file-changes-to-a-company-with-companies-house">tell Companies House about changes to your limited company</a>.</p>
+        {{ govukButton({
+        text: "Continue"
+      }) }}
+      </form>
+    </div>
   </div>
-</div>
-
 {% endblock %}

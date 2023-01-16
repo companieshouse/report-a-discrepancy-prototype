@@ -14,50 +14,73 @@ Give us more information about the discrepancy – {{ serviceName }} – GOV.UK 
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+        {% if errorDiscrepancyInfo == true %}
+          {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: errorList
+          }) }}
+        {% endif %}
 
-      <h1 class="govuk-heading-l">
-        Give us more information about the discrepancy
-      </h1>
+        <h1 class="govuk-heading-l">
+          Give us more information about the discrepancy
+        </h1>
 
-      <p class="govuk-body">You should tell us:</p>
-      
-      <!--Check if user selected PSC or BO on previous page and change content to suit-->
-      {% if data['discrepancy-type'] == 'PSC' %}
-        <ul class="govuk-list govuk-list--bullet">
-          <li>what information on the PSC register is incorrect
-          </li>
-          <li>the correct information as you believe it should be shown on the register
-          </li>
-          <li>any other relevant information about the discrepancy that supports the report
-          </li>
-        </ul>
+        <p class="govuk-body">You should tell us:</p>
+        
+        <!--Check if user selected PSC or BO on previous page and change content to suit-->
+        {% if data['discrepancy-type'] == 'PSC' %}
+          <ul class="govuk-list govuk-list--bullet">
+            <li>what information on the PSC register is incorrect
+            </li>
+            <li>the correct information as you believe it should be shown on the register
+            </li>
+            <li>any other relevant information about the discrepancy that supports the report
+            </li>
+          </ul>
 
-        <p class="govuk-body">If you’re reporting a missing PSC, you need to tell us the name of the PSC who is missing.</p>
-      {% else %}
-        <ul class="govuk-list govuk-list--bullet">
-          <li>what information on the benefical owner register is incorrect
-          </li>
-          <li>the correct information as you believe it should be shown on the register
-          </li>
-          <li>any other relevant information about the discrepancy that supports the report
-          </li>
-        </ul>
+          <p class="govuk-body">If you’re reporting a missing PSC, you need to tell us the name of the PSC who is missing.</p>
+        {% else %}
+          <ul class="govuk-list govuk-list--bullet">
+            <li>what information on the benefical owner register is incorrect
+            </li>
+            <li>the correct information as you believe it should be shown on the register
+            </li>
+            <li>any other relevant information about the discrepancy that supports the report
+            </li>
+          </ul>
 
-        <p class="govuk-body">If you’re reporting a missing beneficial owner, you need to tell us the name of the beneficial owner who is missing.</p>
-      {% endif %}
+          <p class="govuk-body">If you’re reporting a missing beneficial owner, you need to tell us the name of the beneficial owner who is missing.</p>
+        {% endif %}
 
-      <form class="form" action="check-your-answers" method="post">
-
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="more-detail">
-            Discrepancy information
-          </label>
-          <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5"></textarea>
-        </div>
-
-        <button class="govuk-button" data-module="govuk-button">Continue</button>
-
-      </form>
+        <form class="form" action="{{currentUrl}}" method="post">
+          {% if errorDiscrepancyInfo == true %}
+          {{ govukCharacterCount({
+            name: "discrepancyInfo",
+            id: "discrepancyInfo",
+            maxlength: 5000,
+            value: data['discrepancyInfo'],
+            spellcheck: true,
+            label: {
+              html: "Discrepancy information"
+            },
+            errorMessage: {
+              text: "Enter the information that is incorrect for the PSC"
+            }
+          }) }}
+          {% else %}
+            {{ govukCharacterCount({
+              name: "discrepancyInfo",
+              id: "discrepancyInfo",
+              maxlength: 5000,
+              value: data['discrepancyInfo'],
+              spellcheck: true,
+              label: {
+                html: "Discrepancy information"
+              }
+            }) }}
+          {% endif %}
+          <button class="govuk-button" data-module="govuk-button">Continue</button>
+        </form>
 
     </div>
   </div>

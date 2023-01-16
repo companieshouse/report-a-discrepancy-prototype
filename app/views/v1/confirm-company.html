@@ -24,7 +24,7 @@
         {% endif %} 
       </h1>
 
-      <form class="form" action="psc-name" method="post">
+      <form class="form" action="{{currentUrl}}" method="post">
 
         <!--Check if user selected PSC or BO on previous page and change content to suit-->
         {% if data['discrepancy-type'] == 'PSC' %}

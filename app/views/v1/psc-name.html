@@ -11,55 +11,98 @@ Which PSC has a discrepancy for {{company_name}} – {{ serviceName }} – GOV.U
 {% endblock %}
 
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      <form action="{{currentUrl}}" method="post">
+        {% if errorPscName == true %}
+          {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: errorList
+          }) }}
+        {% endif %}
 
-      <form class="form" action="psc-discrepancy-options" method="post">
+        {% if errorPscName == true %}
+          <div class="govuk-form-group govuk-form-group--error">
 
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-fieldset__heading">
-                <!--Check if user selected PSC or BO on previous page and change content to suit-->
-                {% if data['discrepancy-type'] == 'PSC' %}
-                  Which PSC has a discrepancy for Big Company LTD?
-                {% else %}
-                  Which beneficial owner has a discrepancy for Big Company LTD?
-                {% endif %}
-              </h1>
-            </legend>
-            <div class="govuk-radios" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="psc-name" name="psc-name" type="radio" value="legal-person-1">
-                <label class="govuk-label govuk-radios__label" for="psc-name">
-                  Legal person 1
-                </label>
-                <div id="psc-item-hint" class="govuk-hint govuk-radios__hint">Born August 1980</div>
+            <fieldset class="govuk-fieldset" aria-describedby="psc-hint">
+
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  Which PSC has a discrepancy for Company A LTD?
+                </h1>
+              </legend>
+              <p id="where-do-you-live-error" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> Select the PSC with the discrepancy, or if a PSC is missing
+              </p>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="pscName" name="pscName" type="radio" value="legal-person-1">
+                  <label class="govuk-label govuk-radios__label" for="pscName">
+                    Legal person 1
+                  </label>
+                  <div id="psc-item-hint" class="govuk-hint govuk-radios__hint">Born August 1980</div>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="pscName-2" name="pscName" type="radio" value="legal-person-2">
+                  <label class="govuk-label govuk-radios__label" for="pscName-2">
+                    Legal person 2
+                  </label>
+                  <div id="psc-item-hint" class="govuk-hint govuk-radios__hint">Born January 2000</div>
+                </div>
+                <div class="govuk-radios__divider">or</div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="missing" name="pscName" type="radio" value="missing">
+                  <label class="govuk-label govuk-radios__label" for="missing">
+                    PSC is missing
+                  </label>
+                </div>
               </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="psc-name-2" name="psc-name" type="radio" value="legal-person-2">
-                <label class="govuk-label govuk-radios__label" for="psc-name-2">
-                  Legal person 2
-                </label>
-                <div id="psc-item-hint" class="govuk-hint govuk-radios__hint">Born January 2000</div>
-              </div>
-              <div class="govuk-radios__divider">or</div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="missing" name="psc-name" type="radio" value="missing">
-                <label class="govuk-label govuk-radios__label" for="missing">
-                  PSC is missing
-                </label>
-              </div>
-            </div>
-          </fieldset>
-        </div>
+            </fieldset>
+          </div>
+        {% else %}
+          <div class="govuk-form-group">
 
-        <button class="govuk-button" data-module="govuk-button">Continue</button>
+            <fieldset class="govuk-fieldset" aria-describedby="psc-hint">
 
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  Which PSC has a discrepancy for Company A LTD?
+                </h1>
+              </legend>
+              <div id="sign-in-hint" class="govuk-hint">
+                Select the PSC with the discrepancy, or if a PSC is missing
+              </div>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="pscName" name="pscName" type="radio" value="legal-person-1">
+                  <label class="govuk-label govuk-radios__label" for="pscName">
+                    Legal person 1
+                  </label>
+                  <div id="psc-item-hint" class="govuk-hint govuk-radios__hint">Born August 1980</div>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="pscName-2" name="pscName" type="radio" value="legal-person-2">
+                  <label class="govuk-label govuk-radios__label" for="pscName-2">
+                    Legal person 2
+                  </label>
+                  <div id="psc-item-hint" class="govuk-hint govuk-radios__hint">Born January 2000</div>
+                </div>
+                <div class="govuk-radios__divider">or</div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="missing" name="pscName" type="radio" value="missing">
+                  <label class="govuk-label govuk-radios__label" for="missing">
+                    PSC is missing
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        {% endif %}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
       </form>
-
     </div>
   </div>
-
 {% endblock %}

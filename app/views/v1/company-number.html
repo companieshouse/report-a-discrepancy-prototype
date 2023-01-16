@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-What is the company number for the PSC with the discrepancy – {{ serviceName }} – GOV.UK Prototype Kit
+  Confirm company – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -11,56 +11,66 @@ What is the company number for the PSC with the discrepancy – {{ serviceName }
 {% endblock %}
 
 {% block content %}
-
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-
-      <form class="form" action="confirm-company" method="post">
-      
-        <div class="govuk-form-group">
-          <h1 class="govuk-label-wrapper">
-            <label class="govuk-label govuk-label--l" for="company-number">
-              <!--Check if user selected PSC or BO on previous page and change content to suit-->
-              {% if data['discrepancy-type'] == 'PSC' %}
-                What is the company number for the PSC with the discrepancy?
-              {% else %}
-                What is the overseas entity number for the beneficial owner with the discrepancy?
-              {% endif %}
-            </label>
-          </h1>
-          <div id="event-name-hint" class="govuk-hint">
-            <!--Check if user selected PSC or BO on previous page and change content to suit-->
-            {% if data['discrepancy-type'] == 'PSC' %}
-              A company number is 8 characters long.
-            {% else %}
-              A overseas entity number starts with OE and is followed by 6 numbers.
-            {% endif %}
-          </div>
-          <input class="govuk-input govuk-!-width-one-third" id="company-number" name="company-number" type="text">
-        </div>
-
-        <details class="govuk-details" data-module="govuk-details">
-          <summary class="govuk-details__summary">
-            <span class="govuk-details__summary-text">
-              <!--Check if user selected PSC or BO on previous page and change content to suit-->
-              {% if data['discrepancy-type'] == 'PSC' %}
-                How do I find the company number?
-             {% else %}
-                How do I find the Overseas entity number?
-             {% endif %}
-              
-            </span>
-          </summary>
-          <div class="govuk-details__text">
-            <p>You can find this by searching for the company on the <a target='blank' href='https://beta.companieshouse.gov.uk/'>Companies House register (opens in a new tab)</a>.</p>
-          </div>
-        </details>
-
-        <button class="govuk-button" data-module="govuk-button">Continue</button>
-
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      {% if errorNum == true %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: errorList
+        }) }}
+      {% endif %}
+      <form action="{{currentUrl}}" method="post">
+        {% if errorNum == true %}
+          {{ govukInput({
+            label: {
+              text: "What is the company number for the PSC with the discrepancy?",
+              classes: "govuk-label--l",
+              isPageHeading: true
+            },
+            hint: {
+              text: "A company number is 8 characters long."
+            },
+            id: "companyNumber",
+            value: data['companyNumber'],
+            name: "companyNumber",
+            classes: "govuk-!-width-two-thirds",
+            hint: {
+              text: "A company number is 8 characters long."
+            },
+            errorMessage: {
+              text: "The company number must be 8 characters long"
+            },
+            attributes: {
+              spellcheck: "false"
+            }
+          }) }}
+        {% else %}
+          {{ govukInput({
+            label: {
+              text: "What is the company number for the PSC with the discrepancy?",
+              classes: "govuk-label--l",
+              isPageHeading: true
+            },
+            hint: {
+              text: "A company number is 8 characters long."
+            },
+            id: "companyNumber",
+            name: "companyNumber",
+            value: data['companyNumber'],
+            classes: "govuk-!-width-two-thirds",
+            attributes: {
+              spellcheck: "false"
+            }
+          }) }}
+        {% endif %}
+        {{ govukDetails({
+          summaryText: "How do I find the company number?",
+          html: "<p>You can find this by searching for the company on the <a target='blank' href='https://beta.companieshouse.gov.uk/'>Companies House register (opens in a new tab)</a>.</p>"
+         }) }}
+        {{ govukButton({
+          text: "Continue"
+        }) }}
       </form>
-
     </div>
   </div>
-
 {% endblock %}

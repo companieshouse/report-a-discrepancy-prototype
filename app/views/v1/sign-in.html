@@ -10,43 +10,79 @@
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-
-    <h1 class="govuk-heading-xl">Sign in to Companies House</h1>
-    <div class="govuk-inset-text">
-      You must sign in to or create a Companies House account. Your WebFiling details will not work with this service.
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% if errorEmail == true or errorPassword == true %}
+        {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: errorList
+          }) }}
+      {% endif %}
+      <h1 class="govuk-heading-xl">Sign in to Companies House</h1>
+      <div class="govuk-inset-text">
+        You must sign in to or create a Companies House account. Your WebFiling details will not work with this service.
+      </div>
+      <form action="{{currentUrl}}" method="post">
+        {% if errorEmail == true %}
+          {{ govukInput({
+            label: {
+              text: "Email address"
+            },
+            id: "emailAddress",
+            value: data['emailAddress'],
+            type: "email",
+            name: "emailAddress",
+            autocomplete: "email",
+            errorMessage: {
+              text: "Enter your email address"
+            }
+          }) }}
+        {% else %}
+          {{ govukInput({
+            label: {
+              text: "Email address"
+            },
+            type: "email",
+            autocomplete: "email",
+            id: "emailAddress",
+            value: data['emailAddress'],
+            name: "emailAddress"
+          }) }}
+        {% endif %}
+        {% if errorPassword == true %}
+          {{ govukInput({
+            label: {
+              text: "Password"
+            },
+            id: "password",
+            value: data['password'],
+            name: "password",
+            type: "password",
+            errorMessage: {
+              text: "Enter your password"
+            }
+          }) }}
+        {% else %}
+          {{ govukInput({
+            label: {
+              text: "Password"
+            },
+            id: "password",
+            value: data['password'],
+            name: "password",
+            type: "password"
+          }) }}
+        {% endif %}
+        {{ govukButton({
+        text: "Sign in"
+        }) }}
+        <p>
+          <a href="" class="govuk-link govuk-link--no-visited-state">Register a new account</a>
+        </p>
+        <p>
+          <a href="" class="govuk-link govuk-link--no-visited-state">I've forgotten my password</a>
+        </p>
+      </form>
     </div>
-    
-    <form action="obliged-entity-type" method="post" class="form">
-
-      <div class="govuk-form-group" id="email">
-        <label class="govuk-label govuk-!-font-weight-bold" for="email-input">
-          Email address
-        </label>
-        <input class="govuk-input" id="email-input" name="email-input" type="text" autocomplete="email">
-      </div>
-
-
-      <div class="govuk-form-group" id="password">
-        <label class="govuk-label govuk-!-font-weight-bold" for="email-input">
-          Password
-        </label>
-        <input class="govuk-input" id="password-input" name="password-input" type="text">
-      </div>
-
-      <button class="govuk-button" data-module="govuk-button">
-        Sign in
-      </button>
-    </form>
-
-    <p>
-      <a href="#" class="govuk-link govuk-link--no-visited-state">Register a new account</a>
-    </p>
-    <p>
-      <a href="#" class="govuk-link govuk-link--no-visited-state">I've forgotten my password</a>
-    </p>
   </div>
-</div>
-
 {% endblock %}
