@@ -36,24 +36,24 @@ Which PSC has a discrepancy for {{company_name}} – {{ serviceName }} – GOV.U
               </p>
               <div class="govuk-radios" data-module="govuk-radios">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="pscName" name="pscName" type="radio" value="legal-person-1">
+                  <input class="govuk-radios__input" id="pscName" name="pscName" type="radio" value="Daniel Lambert">
                   <label class="govuk-label govuk-radios__label" for="pscName">
-                    Legal person 1
+                    Daniel Lambert
                   </label>
                   <div id="psc-item-hint" class="govuk-hint govuk-radios__hint">Born August 1980</div>
                 </div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="pscName-2" name="pscName" type="radio" value="legal-person-2">
+                  <input class="govuk-radios__input" id="pscName-2" name="pscName" type="radio" value="Helen Fox">
                   <label class="govuk-label govuk-radios__label" for="pscName-2">
-                    Legal person 2
+                    Helen Fox
                   </label>
                   <div id="psc-item-hint" class="govuk-hint govuk-radios__hint">Born January 2000</div>
                 </div>
                 <div class="govuk-radios__divider">or</div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="missing" name="pscName" type="radio" value="missing">
+                  <input class="govuk-radios__input" id="missing" name="pscName" type="radio" value="Missing">
                   <label class="govuk-label govuk-radios__label" for="missing">
-                    PSC is missing
+                    {{ data['discrepancyType'] }} is missing
                   </label>
                 </div>
               </div>
@@ -74,14 +74,14 @@ Which PSC has a discrepancy for {{company_name}} – {{ serviceName }} – GOV.U
               </div>
               <div class="govuk-radios" data-module="govuk-radios">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="pscName" name="pscName" type="radio" value="legal-person-1">
+                  <input class="govuk-radios__input" id="pscName" name="pscName" type="radio" value="Daniel Lambert">
                   <label class="govuk-label govuk-radios__label" for="pscName">
                     Daniel Lambert
                   </label>
                   <div id="psc-item-hint" class="govuk-hint govuk-radios__hint">Born August 1980</div>
                 </div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="pscName-2" name="pscName" type="radio" value="legal-person-2">
+                  <input class="govuk-radios__input" id="pscName-2" name="pscName" type="radio" value="Helen Fox">
                   <label class="govuk-label govuk-radios__label" for="pscName-2">
                     Helen Fox
                   </label>
@@ -89,7 +89,7 @@ Which PSC has a discrepancy for {{company_name}} – {{ serviceName }} – GOV.U
                 </div>
                 <div class="govuk-radios__divider">or</div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="missing" name="pscName" type="radio" value="missing">
+                  <input class="govuk-radios__input" id="missing" name="pscName" type="radio" value="Missing">
                   <label class="govuk-label govuk-radios__label" for="missing">
                     {{ data['discrepancyType'] }} is missing
                   </label>

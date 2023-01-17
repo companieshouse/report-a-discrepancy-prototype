@@ -66,36 +66,36 @@ What type of discrepancy are you reporting for xxxx – {{ serviceName }} – GO
                   </label>
                 </div>
                 <!--Check if user selected PSC or BO on previous page and change content to suit-->
-                {% if data['discrepancy-type'] == 'PSC' %}
+                {% if data['discrepancyType'] == 'PSC' %}
                   <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="psc-options-6" name="psc-options" type="checkbox" value="Notified date">
+                    <input class="govuk-checkboxes__input" id="pscOptions-6" name="pscOptions" type="checkbox" value="Notified date">
                     <label class="govuk-label govuk-checkboxes__label" for="psc-options-6">
                       Notified date
                     </label>
                   </div>
                   <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="psc-options-7" name="psc-options" type="checkbox" value="Country of residence">
+                    <input class="govuk-checkboxes__input" id="pscOptions-7" name="pscOptions" type="checkbox" value="Country of residence">
                     <label class="govuk-label govuk-checkboxes__label" for="psc-options-7">
                       Country of residence
                     </label>
                   </div>
                 {% else %}
                   <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="psc-options-6" name="psc-options" type="checkbox" value="Notified date">
+                    <input class="govuk-checkboxes__input" id="pscOptions-6" name="pscOptions" type="checkbox" value="Missing entry">
                     <label class="govuk-label govuk-checkboxes__label" for="psc-options-6">
                       Missing entry
                     </label>
                   </div>
                   <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="psc-options-7" name="psc-options" type="checkbox" value="Country of residence">
+                    <input class="govuk-checkboxes__input" id="pscOptions-7" name="pscOptions" type="checkbox" value="Incorrect entry">
                     <label class="govuk-label govuk-checkboxes__label" for="psc-options-7">
                       Incorrect entry for date individual became beneficial owner
                     </label>
                   </div>
                 {% endif %}
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="psc-options-8" name="psc-options" type="checkbox" value="Other reason">
-                  <label class="govuk-label govuk-checkboxes__label" for="psc-options-8">
+                  <input class="govuk-checkboxes__input" id="pscOptions-8" name="pscOptions" type="checkbox" value="Other reason">
+                  <label class="govuk-label govuk-checkboxes__label" for="pscOptions-8">
                     Other reason
                   </label>
                 </div>
@@ -147,34 +147,34 @@ What type of discrepancy are you reporting for xxxx – {{ serviceName }} – GO
                 <!--Check if user selected PSC or BO on previous page and change content to suit-->
                 {% if data['discrepancyType'] == 'PSC' %}
                   <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="psc-options-6" name="psc-options" type="checkbox" value="Notified date">
-                    <label class="govuk-label govuk-checkboxes__label" for="psc-options-6">
+                    <input class="govuk-checkboxes__input" id="pscOptions-6" name="pscOptions" type="checkbox" value="Notified date">
+                    <label class="govuk-label govuk-checkboxes__label" for="pscOptions-6">
                       Notified date
                     </label>
                   </div>
                   <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="psc-options-7" name="psc-options" type="checkbox" value="Country of residence">
-                    <label class="govuk-label govuk-checkboxes__label" for="psc-options-7">
+                    <input class="govuk-checkboxes__input" id="pscOptions-7" name="pscOptions" type="checkbox" value="Country of residence">
+                    <label class="govuk-label govuk-checkboxes__label" for="pscOptions-7">
                       Country of residence
                     </label>
                   </div>
                 {% else %}
                   <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="psc-options-6" name="psc-options" type="checkbox" value="Notified date">
-                    <label class="govuk-label govuk-checkboxes__label" for="psc-options-6">
+                    <input class="govuk-checkboxes__input" id="pscOptions-6" name="pscOptions" type="checkbox" value="Missing entry">
+                    <label class="govuk-label govuk-checkboxes__label" for="pscOptions-6">
                       Missing entry
                     </label>
                   </div>
                   <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="psc-options-7" name="psc-options" type="checkbox" value="Country of residence">
+                    <input class="govuk-checkboxes__input" id="pscOptions-7" name="pscOptions" type="checkbox" value="Incorrect date">
                     <label class="govuk-label govuk-checkboxes__label" for="psc-options-7">
                       Incorrect date they became a beneficial owner
                     </label>
                   </div>
                 {% endif %}
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="psc-options-8" name="psc-options" type="checkbox" value="Other reason">
-                  <label class="govuk-label govuk-checkboxes__label" for="psc-options-8">
+                  <input class="govuk-checkboxes__input" id="pscOptions-8" name="pscOptions" type="checkbox" value="Other reason">
+                  <label class="govuk-label govuk-checkboxes__label" for="pscOptions-8">
                     Other reason
                   </label>
                 </div>

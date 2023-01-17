@@ -64,10 +64,20 @@
           <input class="govuk-input govuk-!-width-two-thirds" id="companyNumber" name="companyNumber" type="text">
         </div>
         {% endif %}
-        {{ govukDetails({
-          summaryText: "How do I find the company number?",
-          html: "<p>You can find this by searching for the company on the <a target='blank' href='https://beta.companieshouse.gov.uk/'>Companies House register (opens in a new tab)</a>.</p>"
-         }) }}
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+            {% if data['discrepancyType'] == 'PSC' %}
+              How do I find the company number?
+            {% else %}
+              How do I find the overseas entity ID?
+            {% endif %}
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            You can find this by searching for the company on the <a target='blank' href='https://beta.companieshouse.gov.uk/'>Companies House register (opens in a new tab)</a>.
+          </div>
+        </details>
         {{ govukButton({
           text: "Continue"
         }) }}

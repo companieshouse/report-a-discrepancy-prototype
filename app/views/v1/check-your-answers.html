@@ -137,7 +137,10 @@ Check your answers before submitting your report – {{ serviceName }} – GOV.U
             What the discrepancy relates to
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['discrepancyCategory'] }}
+            <!--Loop through checked checkboxes-->
+            {% for feature in data['discrepancyCategory'] %}
+            {{ feature }}<br>
+            {% endfor %}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="company-number">

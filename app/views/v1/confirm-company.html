@@ -44,7 +44,7 @@
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">Incorporation date</dt>
-              <dd class="govuk-summary-list__value">01 January 2020</dd>
+              <dd class="govuk-summary-list__value">01 December 2022</dd>
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">Company type</dt>
@@ -66,23 +66,31 @@
               <dt class="govuk-summary-list__key">Overseas Entity ID</dt>
               <dd class="govuk-summary-list__value">{{ data['companyNumber'] }}</dd>
             </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">Status</dt>
-              <dd class="govuk-summary-list__value">Active
-              </dd>
-            </div>
+            {% if data['discrepancyType'] == 'PSC' %}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Status</dt>
+                <dd class="govuk-summary-list__value">Active
+                </dd>
+              </div>
+            {% endif %}
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">Registered  on</dt>
-              <dd class="govuk-summary-list__value">01 January 2020</dd>
+              <dd class="govuk-summary-list__value">01 December 2022</dd>
             </div>
+            {% if data['discrepancyType'] == 'PSC' %}
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">Overseas Entity type</dt>
               <dd class="govuk-summary-list__value">Private limited Company</dd>
             </div>
+            {% endif %}
             <div class="govuk-summary-list__row">
+            {% if data['discrepancyType'] == 'PSC' %}
               <dt class="govuk-summary-list__key">Registered office address</dt>
-              <dd class="govuk-summary-list__value">100 Long Street, Townville, United Kingdom, AA1 B22
-              </dd>
+              <dd class="govuk-summary-list__value">100 Long Street, Townville, United Kingdom, AA1 B22</dd>
+            {% else %}
+              <dt class="govuk-summary-list__key">Principle office address</dt>
+              <dd class="govuk-summary-list__value">100 Long Street, Townville, Germany, AA1 B22</dd>
+            {% endif %}
             </div>
           </dl>
         {% endif %} 
@@ -93,7 +101,7 @@
 
       <p class="govuk-body">
         <!--Check if user selected PSC or BO on previous page and change content to suit-->
-        {% if data['discrepancy-type'] == 'PSC' %}
+        {% if data['discrepancyType'] == 'PSC' %}
         <a href="company-number">Change company</a>
         {% else %}
         <a href="company-number">Change overseas entity</a>

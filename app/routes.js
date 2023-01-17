@@ -172,7 +172,7 @@ const router = govukPrototypeKit.requests.setupRouter()
   router.post('/v1/discrepancy-category', function (req, res) {
     // Create empty array
     var errors = [];
-    var test = req.session.data['discrepancyCategory'];
+    var i = req.session.data['discrepancyCategory'];
 
     // Check if user has filled out a value
     if (typeof req.session.data['discrepancyCategory'] === 'undefined') {
@@ -187,7 +187,7 @@ const router = govukPrototypeKit.requests.setupRouter()
         errorDiscrepancyCategory: true,
         errorList: errors
       })
-    } else if (test == 'something-else')  {
+    } else if (i == 'Something else')  {
       // User inputted value so move to next page
       res.redirect('/v1/no-category')
     } else {

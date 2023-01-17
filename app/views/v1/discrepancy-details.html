@@ -28,8 +28,13 @@ Give us more information about the discrepancy – {{ serviceName }} – GOV.UK 
         <p class="govuk-body">You should tell us:</p>
         
         <ul class="govuk-list govuk-list--bullet">
-          <li>what information on the {{ data['discrepancyType'] }} register is incorrect
-          </li>
+          {% if data['discrepancyType'] == 'PSC' %}
+            <li>what information on the PSC register is incorrect
+            </li>
+          {% else %}
+            <li>what information on the overseas entity register is incorrect
+            </li>
+          {% endif %} 
           <li>the correct information as you believe it should be shown on the register
           </li>
           <li>any other relevant information about the discrepancy that supports the report
