@@ -56,39 +56,30 @@ Which PSC has a discrepancy for {{company_name}} – {{ serviceName }} – GOV.U
 
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                 <h1 class="govuk-fieldset__heading">
-                  Do you want to report a PSC discrepancy for a company or a beneficial owner discrepancy for a overseas entity?
+                  Which type of person or entity are you reporting a discrepancy about?
                 </h1>
               </legend>
               <div id="sign-in-hint" class="govuk-hint">
-                Select a discrepancy type
+                
               </div>
               <div class="govuk-radios" data-module="govuk-radios">
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="discrepancyType" name="discrepancyType" type="radio" value="PSC">
                   <label class="govuk-label govuk-radios__label" for="discrepancyType">
-                    Report a PSC discrepancy
+                    Person with significant control (PSC)
                   </label>
                 </div>
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="discrepancyType-2" name="discrepancyType" type="radio" value="beneficial owner">
                   <label class="govuk-label govuk-radios__label" for="discrepancyType-2">
-                    Report a beneficial owners discrepancy
+                    Beneficial owner of an overseas entity
                   </label>
                 </div>
               </div>
             </fieldset>
           </div>
         {% endif %}
-        <details class="govuk-details" data-module="govuk-details">
-          <summary class="govuk-details__summary">
-            <span class="govuk-details__summary-text">
-              What type of discrepancy do I want to report?
-            </span>
-          </summary>
-          <div class="govuk-details__text">
-            text
-          </div>
-        </details>
+       
 
         {{ govukButton({
           text: "Continue"

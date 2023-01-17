@@ -79,7 +79,7 @@ Check your answers before submitting your report – {{ serviceName }} – GOV.U
       {% if data['discrepancyType'] == 'PSC' %}
         <h2 class="govuk-heading-m">Company details for the PSC with the discrepancy</h2>
       {% else %}
-        <h2 class="govuk-heading-m">Overseas Entity details for the beneficial owner with the discrepancy</h2>
+        <h2 class="govuk-heading-m">Overseas entity details for the beneficial owner with the discrepancy</h2>
       {% endif %}
 
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
@@ -89,7 +89,7 @@ Check your answers before submitting your report – {{ serviceName }} – GOV.U
             {% if data['discrepancyType'] == 'PSC' %}
               Company number
             {% else %}
-              Overseas entity number
+              Overseas Entity ID
             {% endif %}
           </dt>
           <dd class="govuk-summary-list__value">
@@ -134,7 +134,7 @@ Check your answers before submitting your report – {{ serviceName }} – GOV.U
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Discrepancy category
+            What the discrepancy relates to
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['discrepancyCategory'] }}
@@ -147,7 +147,7 @@ Check your answers before submitting your report – {{ serviceName }} – GOV.U
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Types of discrepancy
+            Type of discrepancy
           </dt>
           <dd class="govuk-summary-list__value">
             <!--Loop through checked checkboxes-->
