@@ -76,8 +76,12 @@ Check your answers before submitting your report – {{ serviceName }} – GOV.U
         </div>
       </dl>
 
-      <h2 class="govuk-heading-m">Company details for the {{ data['discrepancyType'] }} with the discrepancy</h2>
-      
+      {% if data['discrepancyType'] == 'PSC' %}
+        <h2 class="govuk-heading-m">Company details for the PSC with the discrepancy</h2>
+      {% else %}
+        <h2 class="govuk-heading-m">Overseas Entity details for the beneficial owner with the discrepancy</h2>
+      {% endif %}
+
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">

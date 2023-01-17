@@ -24,11 +24,19 @@
         <div class="govuk-form-group govuk-form-group--error">
           <h1 class="govuk-label-wrapper">
             <label class="govuk-label govuk-label--l" for="companyNumber">
-              What is the company number for the {{ data['discrepancyType'] }} with the discrepancy?
+              {% if data['discrepancyType'] == 'PSC' %}
+                What is the company number for the PSC with the discrepancy?
+              {% else %}
+                What is the Overseas Entity ID for the beneficial owner with the discrepancy?
+              {% endif %}
             </label>
           </h1>
           <div id="companyNumber-hint" class="govuk-hint">
-            A company number is 8 characters long.
+            {% if data['discrepancyType'] == 'PSC' %}
+              A company number is 8 characters long.
+            {% else %}
+              A Overseas Entity ID starts with OE and is followed by 6 numbers.
+            {% endif %}
           </div>
           <p id="companyNumber-error" class="govuk-error-message">
             <span class="govuk-visually-hidden">Error:</span> The company number must be 8 characters long
@@ -39,11 +47,19 @@
         <div class="govuk-form-group">
           <h1 class="govuk-label-wrapper">
             <label class="govuk-label govuk-label--l" for="companyNumber">
-              What is the company number for the {{ data['discrepancyType'] }} with the discrepancy?
+              {% if data['discrepancyType'] == 'PSC' %}
+                What is the company number for the PSC with the discrepancy?
+              {% else %}
+                What is the Overseas Entity ID for the beneficial owner with the discrepancy?
+              {% endif %}
             </label>
           </h1>
           <div id="companyNumber-hint" class="govuk-hint">
-            A company number is 8 characters long.
+            {% if data['discrepancyType'] == 'PSC' %}
+              A company number is 8 characters long.
+            {% else %}
+              A Overseas Entity ID starts with OE and is followed by 6 numbers.
+            {% endif %}
           </div>
           <input class="govuk-input govuk-!-width-two-thirds" id="companyNumber" name="companyNumber" type="text">
         </div>

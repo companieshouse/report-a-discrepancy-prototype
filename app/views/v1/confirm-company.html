@@ -17,10 +17,10 @@
 
       <h1 class="govuk-heading-l">
         <!--Check if user selected PSC or BO on previous page and change content to suit-->
-        {% if data['discrepancy-type'] == 'PSC' %}
+        {% if data['discrepancyType'] == 'PSC' %}
           Confirm this is the correct company
         {% else %}
-          Confirm this is the correct overseas entity
+          Confirm this is the correct Overseas Entity
         {% endif %} 
       </h1>
 
@@ -59,11 +59,11 @@
         {% else %}
           <dl class="govuk-summary-list">
             <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">Overseas entity name</dt>
+              <dt class="govuk-summary-list__key">Overseas Entity name</dt>
               <dd class="govuk-summary-list__value">Big Shop LTD</dd>
             </div>
             <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">Overseas entity number</dt>
+              <dt class="govuk-summary-list__key">Overseas Entity ID</dt>
               <dd class="govuk-summary-list__value">{{ data['companyNumber'] }}</dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -76,7 +76,7 @@
               <dd class="govuk-summary-list__value">01 January 2020</dd>
             </div>
             <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">Overseas entity type</dt>
+              <dt class="govuk-summary-list__key">Overseas Entity type</dt>
               <dd class="govuk-summary-list__value">Private limited Company</dd>
             </div>
             <div class="govuk-summary-list__row">

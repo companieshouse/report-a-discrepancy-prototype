@@ -192,7 +192,7 @@ const router = govukPrototypeKit.requests.setupRouter()
       res.redirect('/v1/no-category')
     } else {
       // User inputted value so move to next page
-      res.redirect('/v1/discrepancy-type')
+      res.redirect('/v1/sign-in')
     }
   })
 
@@ -256,7 +256,7 @@ const router = govukPrototypeKit.requests.setupRouter()
       })
     } else {
       // User inputted value so move to next page
-      res.redirect('/v1/sign-in')
+      res.redirect('/v1/obliged-entity-type')
     }
   })
 
@@ -402,6 +402,6 @@ router.post('/v1/obliged-entity-type', function (req, res) {
       })
     } else {
       // User inputted value so move to next page
-      res.redirect('/v1/obliged-entity-type')
+      res.redirect('/v1/discrepancy-type')
     }
   })
