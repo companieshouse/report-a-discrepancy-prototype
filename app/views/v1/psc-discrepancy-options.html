@@ -145,7 +145,7 @@ What type of discrepancy are you reporting for xxxx – {{ serviceName }} – GO
                   </label>
                 </div>
                 <!--Check if user selected PSC or BO on previous page and change content to suit-->
-                {% if data['discrepancy-type'] == 'PSC' %}
+                {% if data['discrepancyType'] == 'PSC' %}
                   <div class="govuk-checkboxes__item">
                     <input class="govuk-checkboxes__input" id="psc-options-6" name="psc-options" type="checkbox" value="Notified date">
                     <label class="govuk-label govuk-checkboxes__label" for="psc-options-6">
