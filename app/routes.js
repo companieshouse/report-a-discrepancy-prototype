@@ -18,6 +18,7 @@ const router = govukPrototypeKit.requests.setupRouter()
   router.post('/v1/company-number', function (req, res) {
     // Create empty array
     var errors = []
+    var i = req.session.data['companyNumber'].toUpperCase();
 
     // Check if user has filled out a value
     if (req.session.data['companyNumber'] === '') {
@@ -32,6 +33,9 @@ const router = govukPrototypeKit.requests.setupRouter()
         errorNum: true,
         errorList: errors
       })
+    } else if (i == '00000000' || i == 'OE000000')  {
+      // User inputted value so move to next page
+      res.redirect('/v1/secure-psc')
     } else {
       // User inputted value so move to next page
       res.redirect('/v1/confirm-company')
