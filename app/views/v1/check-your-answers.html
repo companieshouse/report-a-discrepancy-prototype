@@ -111,7 +111,12 @@ Check your answers before submitting your report – {{ serviceName }} – GOV.U
             {% endif %}
           </dt>
           <dd class="govuk-summary-list__value">
+          {% if data['discrepancyType'] == 'PSC' %}
+            BIG SHOP LTD
+          {% else %}
             INVESTMENT HOLDINGS LTD
+          {% endif %}
+            
           </dd>
           <dd class="govuk-summary-list__actions"></dd>
         </div>
