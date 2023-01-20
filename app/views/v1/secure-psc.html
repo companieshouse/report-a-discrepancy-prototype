@@ -14,7 +14,11 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        A {{ data['discrepancyType'] }} for this company has details protected 
+      {% if data['discrepancyType'] == 'PSC' %}
+        A PSC for this company has details protected
+      {% else %}
+        A beneficial owner for this overseas entity has details protected
+      {% endif %}
       </h1>
 
       {% if data['discrepancyType'] == 'PSC' %}
