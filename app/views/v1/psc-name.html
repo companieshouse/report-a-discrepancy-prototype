@@ -28,7 +28,11 @@ Which PSC has a discrepancy for {{company_name}} – {{ serviceName }} – GOV.U
 
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                 <h1 class="govuk-fieldset__heading">
-                  Which {{ data['discrepancyType'] }} has a discrepancy for BIG SHOP LTD?
+                {% if data['discrepancyType'] == 'PSC' %}
+                  Which PSC has a discrepancy for BIG SHOP LTD?
+                {% else %}
+                  Which beneficial owner has a discrepancy for INVESTMENT HOLDINGS LTD?
+                {% endif %}
                 </h1>
               </legend>
               <p id="where-do-you-live-error" class="govuk-error-message">
@@ -71,7 +75,11 @@ Which PSC has a discrepancy for {{company_name}} – {{ serviceName }} – GOV.U
 
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                 <h1 class="govuk-fieldset__heading">
-                  Which {{ data['discrepancyType'] }} has a discrepancy for INVESTMENT HOLDINGS LTD?
+                {% if data['discrepancyType'] == 'PSC' %}
+                  Which PSC has a discrepancy for BIG SHOP LTD?
+                {% else %}
+                  Which beneficial owner has a discrepancy for INVESTMENT HOLDINGS LTD?
+                {% endif %}   
                 </h1>
               </legend>
               <div id="sign-in-hint" class="govuk-hint">

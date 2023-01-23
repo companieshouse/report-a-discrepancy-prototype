@@ -65,7 +65,11 @@
         </p>
       {% endif %}
       <p class="govuk-body">
-        <a href="discrepancy-category">Submit another discrepancy report</a>
+        <form id="another-report" action="discrepancy-category">
+          <input type="hidden" name="anotherReport" id="anotherReport" value="true" />
+          <a class="govuk-link govuk-!-font-size-19" href="#" onclick="document.getElementById('another-report').submit();">
+            Submit another discrepancy report</a>
+        </form>
       </p>
       <h3 class="govuk-heading-m">Feedback</h3>
       <p class="govuk-body">This is a new service. Help us improve it by completing our

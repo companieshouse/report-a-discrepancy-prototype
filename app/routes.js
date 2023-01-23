@@ -195,8 +195,15 @@ const router = govukPrototypeKit.requests.setupRouter()
       // User inputted value so move to next page
       res.redirect('/v1/no-category')
     } else {
-      // User inputted value so move to next page
-      res.redirect('/v1/sign-in')
+      if (req.session.data['anotherReport'] == 'true') {
+        // Already signed in so skip sign-in page
+        res.redirect('/v1/discrepancy-type')
+      }
+      else {
+        // User inputted value so move to next page
+        res.redirect('/v1/sign-in')
+      }
+      
     }
   })
 
