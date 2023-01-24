@@ -195,16 +195,9 @@ const router = govukPrototypeKit.requests.setupRouter()
       // User inputted value so move to next page
       res.redirect('/v1/no-category')
     } else {
-      if (req.session.data['anotherReport'] == 'true') {
-        // Already signed in so skip sign-in page
+        // User inputted value so move to next page
         res.redirect('/v1/discrepancy-type')
       }
-      else {
-        // User inputted value so move to next page
-        res.redirect('/v1/sign-in')
-      }
-      
-    }
   })
 
 
@@ -413,6 +406,6 @@ router.post('/v1/obliged-entity-type', function (req, res) {
       })
     } else {
       // User inputted value so move to next page
-      res.redirect('/v1/discrepancy-type')
+      res.redirect('/v1/discrepancy-category')
     }
   })
