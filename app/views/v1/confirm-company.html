@@ -35,7 +35,7 @@
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">Company number</dt>
-              <dd class="govuk-summary-list__value">{{ data['companyNumber'] }}</dd>
+              <dd class="govuk-summary-list__value" style="text-transform: uppercase">{{ data['companyNumber'] }}</dd>
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">Status</dt>
@@ -88,7 +88,7 @@
               <dt class="govuk-summary-list__key">Registered office address</dt>
               <dd class="govuk-summary-list__value">100 Long Street, Plymouth, United Kingdom, AA1 B22</dd>
             {% else %}
-              <dt class="govuk-summary-list__key">Principal office address</dt>
+              <dt class="govuk-summary-list__key">Principal or registered office address</dt>
               <dd class="govuk-summary-list__value">10 Marienplatz, Munich, Germany, 34 80804</dd>
             {% endif %}
             </div>
