@@ -74,7 +74,7 @@ Which PSC has a discrepancy for {{company_name}} – {{ serviceName }} – GOV.U
               </h1>
             </legend>
             <div id="discrepancyCategory-hint" class="govuk-hint">
-              Select all that apply.
+              Select all that apply. If the discrepancy relates to money laundering or terrorism financing, you must also report this to any appropriate organisations.
             </div>
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
               <div class="govuk-checkboxes__item">
@@ -108,6 +108,10 @@ Which PSC has a discrepancy for {{company_name}} – {{ serviceName }} – GOV.U
           </fieldset>
         </div>
         {% endif %}
+
+        {{ govukInsetText({
+  text: "You can only use this service to report a discrepancy if it relates to at least one of these options."
+}) }}
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
 
