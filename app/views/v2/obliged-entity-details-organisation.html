@@ -1,0 +1,56 @@
+{% extends "layouts/main.html" %}
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+What is the name of your organisation – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "../includes/phase-banner.html" %}
+  {% include "../includes/account-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="{{currentUrl}}" method="post">
+        {% if errorOrganisation == true %}
+          {{ govukErrorSummary({
+              titleText: "There is a problem",
+              errorList: errorList
+          }) }}
+          {{ govukInput({
+            label: {
+              text: "What is the name of your organisation?",
+              isPageHeading: true,
+              classes: "govuk-label--l"
+            },
+            classes: "govuk-!-width-two-thirds",
+            value: data['organisationName'],
+            id: "organisationName",
+            name: "organisationName",
+            errorMessage: {
+              text: "Enter your organisation name"
+            }
+          }) }}
+        {% else %}
+          {{ govukInput({
+            label: {
+              text: "What is the name of your organisation?",
+              isPageHeading: true,
+              classes: "govuk-label--l"
+            },
+            classes: "govuk-!-width-two-thirds",
+            value: data['organisationName'],
+            id: "organisationName",
+            name: "organisationName"
+          }) }}
+        {% endif %}
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

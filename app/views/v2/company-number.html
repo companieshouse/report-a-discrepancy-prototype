@@ -1,0 +1,70 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Confirm company – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "../includes/phase-banner.html" %}
+  {% include "../includes/account-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% if errorNum == true %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: errorList
+        }) }}
+      {% endif %}
+      <form action="{{currentUrl}}" method="post">
+        {% if errorNum == true %}
+        <div class="govuk-form-group govuk-form-group--error">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--l" for="companyNumber">
+              What is the company number or Overseas Entity ID?
+            </label>
+          </h1>
+          <div id="companyNumber-hint" class="govuk-hint">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at est in risus posuere 
+            cursus. Suspendisse potenti. 
+          </div>
+          <p id="companyNumber-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> The company number must be 8 characters long
+          </p>
+          <input class="govuk-input govuk-!-width-two-thirds" id="companyNumber" name="companyNumber" type="text">
+        </div>
+        {% else %}
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--l" for="companyNumber">
+                What is the company number or Overseas Entity ID?
+            </label>
+          </h1>
+          <div id="companyNumber-hint" class="govuk-hint">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at est in risus posuere 
+            cursus. Suspendisse potenti. 
+          </div>
+          <input class="govuk-input govuk-!-width-two-thirds" id="companyNumber" name="companyNumber" type="text">
+        </div>
+        {% endif %}
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              How do I find the company number or Overseas Entity ID?
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            You can find this by searching for the overseas entity on the <a target='blank' href='https://beta.companieshouse.gov.uk/'>Companies House register (opens in a new tab)</a>.
+          </div>
+        </details>
+        <input type="hidden" name="discrepancyType" id="discrepancyType" value="PSC" />
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

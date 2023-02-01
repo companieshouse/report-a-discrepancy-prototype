@@ -1,0 +1,119 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Which PSC has a discrepancy for {{company_name}} – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "../includes/phase-banner.html" %}
+  {% include "../includes/account-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="{{currentUrl}}" method="post">
+        {% if errorDiscrepancyCategory == true %}
+          {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: errorList
+          }) }}
+        {% endif %}
+
+
+        {% if errorDiscrepancyCategory == true %}
+        <div class="govuk-form-group govuk-form-group--error">
+          <fieldset class="govuk-fieldset" aria-describedby="discrepancyCategory-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                What does the discrepancy you are reporting relate to?
+              </h1>
+            </legend>
+            <p id="discrepancyCategory-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Select what the discrepancy you are reporting relates to
+            </p>
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="discrepancyCategory" name="discrepancyCategory" type="checkbox" value="Money laundering">
+                <label class="govuk-label govuk-checkboxes__label" for="discrepancyCategory">
+                  Money laundering
+                </label>
+                <div id="discrepancyCategory-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                  hint text
+                </div>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="discrepancyCategory-2" name="discrepancyCategory" type="checkbox" value="Terrorism financing">
+                <label class="govuk-label govuk-checkboxes__label" for="discrepancyCategory-2">
+                  Terrorism financing
+                </label>
+                <div id="discrepancyCategory-2-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                  hint text
+                </div>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="discrepancyCategory-3" name="discrepancyCategory" type="checkbox" value="Concealing details">
+                <label class="govuk-label govuk-checkboxes__label" for="discrepancyCategory-3">
+                  It appears to conceal details of the business of the customer
+                </label>
+                <div id="discrepancyCategory-3-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                  hint text
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        {% else %}
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="discrepancyCategory-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                What does the discrepancy you are reporting relate to?
+              </h1>
+            </legend>
+            <div id="discrepancyCategory-hint" class="govuk-hint">
+              Select all that apply.
+            </div>
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="discrepancyCategory" name="discrepancyCategory" type="checkbox" value="Money laundering">
+                <label class="govuk-label govuk-checkboxes__label" for="discrepancyCategory">
+                  Money laundering
+                </label>
+                <div id="discrepancyCategory-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                  hint text
+                </div>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="discrepancyCategory-2" name="discrepancyCategory" type="checkbox" value="Terrorism financing">
+                <label class="govuk-label govuk-checkboxes__label" for="discrepancyCategory-2">
+                  Terrorism financing
+                </label>
+                <div id="discrepancyCategory-2-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                  hint text
+                </div>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="discrepancyCategory-3" name="discrepancyCategory" type="checkbox" value="Concealing details">
+                <label class="govuk-label govuk-checkboxes__label" for="discrepancyCategory-3">
+                  It appears to conceal details of the business of the customer
+                </label>
+                <div id="discrepancyCategory-3-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                  hint text
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        {% endif %}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
