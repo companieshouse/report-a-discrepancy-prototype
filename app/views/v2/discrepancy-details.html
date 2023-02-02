@@ -60,16 +60,19 @@ Give us more information about the discrepancy – {{ serviceName }} – GOV.UK 
             }
           }) }}
           {% else %}
-            {{ govukCharacterCount({
-              name: "discrepancyInfo",
-              id: "discrepancyInfo",
-              maxlength: 5000,
-              value: data['discrepancyInfo'],
-              spellcheck: true,
-              label: {
-                html: "Discrepancy information"
-              }
-            }) }}
+
+            {% for feature in data['pscOptions'] %}
+
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="discrepancyInfo">
+                {{ feature }} discrepancy information
+              </label>
+              <textarea class="govuk-textarea" id="discrepancyInfo" name="discrepancyInfo" 
+              rows="5" maxlength="5000" spellcheck="true" value="data['discrepancyInfo']" ></textarea>
+            </div>
+
+            {% endfor %}
+
           {% endif %}
           <button class="govuk-button" data-module="govuk-button">Continue</button>
         </form>

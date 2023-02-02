@@ -180,7 +180,7 @@ router.post('/v2/discrepancy-category', function (req, res) {
   if (typeof req.session.data['discrepancyCategory'] === 'undefined') {
     // No value so add error to array
     errors.push({
-      text: 'Select what the discrepancy you are reporting relates to',
+      text: 'Select all that apply. If the discrepancy relates to money laundering or terrorism financing, you must also report this to any appropriate organisations.',
       href: '#discrepancyCategory'
     })
 

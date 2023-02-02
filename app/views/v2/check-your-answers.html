@@ -174,7 +174,9 @@ Check your answers before submitting your report – {{ serviceName }} – GOV.U
             More information about the discrepancy
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['discrepancyInfo'] }}
+            {% for type in data['discrepancyInfo'] %}
+             <p>{{ type }}</p> <br>
+            {% endfor %}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="discrepancy-details">
