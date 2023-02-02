@@ -18,7 +18,7 @@ router.post('/v2/company-number', function (req, res) {
   if (req.session.data['companyNumber'] === '') {
     // No value so add error to array
     errors.push({
-      text: 'The company number must be 8 characters long',
+      text: 'The company number or Overseas Entity ID must be 8 characters long',
       href: '#companyNumber'
     })
 
