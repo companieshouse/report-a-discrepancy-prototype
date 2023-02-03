@@ -32,7 +32,7 @@ Which PSC has a discrepancy for {{company_name}} – {{ serviceName }} – GOV.U
               </h1>
             </legend>
             <p id="discrepancyCategory-error" class="govuk-error-message">
-              <span class="govuk-visually-hidden">Error:</span> Select all that apply. If the discrepancy relates to money laundering or terrorism financing, you must also report this to any appropriate organisations.
+              <span class="govuk-visually-hidden">Error:</span> Select what the discrepancy you are reporting relates to
             </p>
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
               <div class="govuk-checkboxes__item">
@@ -65,7 +65,7 @@ Which PSC has a discrepancy for {{company_name}} – {{ serviceName }} – GOV.U
               </h1>
             </legend>
             <div id="discrepancyCategory-hint" class="govuk-hint">
-              Select all that apply. If the discrepancy relates to money laundering or terrorism financing, you must also report this to any appropriate organisations you are obliged to report to.
+              Select all that apply. You can only use this service to report a discrepancy if it relates to at least one of these options.
             </div>
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
               <div class="govuk-checkboxes__item">
@@ -92,7 +92,7 @@ Which PSC has a discrepancy for {{company_name}} – {{ serviceName }} – GOV.U
         {% endif %}
 
         {{ govukInsetText({
-  text: "You can only use this service to report a discrepancy if it relates to at least one of these options."
+  text: "If the discrepancy relates to money laundering or terrorist financing, you must also report this to any organisations you are obliged to report to."
 }) }}
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
