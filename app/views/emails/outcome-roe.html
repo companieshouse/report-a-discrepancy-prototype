@@ -1,0 +1,78 @@
+{% set title = "" %}
+{% extends "layouts/main.html" %}
+
+{% set serviceName %}
+{{title}}
+{% endset%}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Outcome of discrepancy report</h1>
+      <h2 class="govuk-heading-m">Report details</h2>
+      {{ govukTable({
+        rows: [
+        [
+          {
+            text: "Reference number"
+          },
+          {
+            text: "RD-20-00-00-01"
+          }
+        ],
+          [
+            {
+              text: "Overseas Entity ID"
+            },
+            {
+              text: "OE123456"
+            }
+          ],
+          [
+            {
+              text: "Overseas entity name"
+            },
+            {
+              text: "INVESTMENT HOLDINGS LTD"
+            }
+          ],
+          [
+            {
+              text: "Name of registrable beneficial owner"
+            },
+            {
+              text: "Daniel Lambert"
+            }
+          ],
+          [
+            {
+              text: "Type of discrepancy"
+            },
+            {
+              text: "Date of birth"
+            }
+          ],
+          [
+            {
+              text: "More information about the discrepancy"
+            },
+            {
+              text: "Daniel Lambert's year of birth is shown as 1985 on the register. The year should be shown as 1986. This is what is shown on his driver's licence."
+            }
+
+
+          ]
+        ]
+      }) }}
+      <h2 class="govuk-heading-m">Outcome</h2>
+      <p class="govuk-body">We have completed our investigation into the discrepancy shown on your report. The register has been updated and your report is now closed.
+      </p>
+      <h2 class="govuk-heading-m">Contact us</h2>
+      <p class="govuk-body">If you need to contact us about your report, email
+        <a href="mailto:pscdiscrepancies@companieshouse.gov.uk">ROEdiscrepancies@companieshouse.gov.uk</a>.
+      </p>
+      <h2 class="govuk-heading-m">Feedback</h2>
+      <p>This is a new service. Help us improve it by completing our
+        <a href="https://www.smartsurvey.co.uk/s/reptpscdisp-fdbk/">quick survey</a>.</p>
+    </div>
+  </div>
+{% endblock %}
