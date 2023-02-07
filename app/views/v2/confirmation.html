@@ -30,8 +30,9 @@
         <li>details of the report</li>
       </ul>
 
-      <!--Check if user selected PSC or BO on previous page and change content to suit-->
-      {% if data['discrepancy-type'] == 'PSC' %}
+      <!--Check if user selected PSC or BO on previous page and change content to suit--> 
+
+      {% if data['discrepancyType'] == 'PSC' %}
         <p class="govuk-body">The email may take a few minutes to arrive. If you do not receive it within 24 hours, email
           <a class="govuk-link" href="mailto:pscdiscrepancies@companieshouse.gov.uk">pscdiscrepancies@companieshouse.gov.uk</a>.
         </p>

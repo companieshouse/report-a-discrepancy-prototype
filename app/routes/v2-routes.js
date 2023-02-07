@@ -28,6 +28,11 @@ router.post('/v2/company-number', function (req, res) {
       errorList: errors
     })
   } else if (i == '00000000' || i == 'OE000000')  {
+    if (i.slice(0, 2) == 'OE' ) {
+      req.session.data['discrepancyType'] = 'beneficial owner'
+    } else {
+      req.session.data['discrepancyType'] = 'PSC'
+    }
     // User inputted value so move to next page
     res.redirect('/v2/secure-psc')
   } else {
