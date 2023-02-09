@@ -59,8 +59,17 @@ Give us more information about the discrepancy – {{ serviceName }} – GOV.UK 
               text: "Enter the information that is incorrect"
             }
           }) }}
-          {% else %}
 
+          {% elif data['pscName'] == 'missing' %}
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="discrepancyInfo">
+              Missing {{ data['discrepancyType'] }} 
+            </label>
+            <textarea class="govuk-textarea" id="discrepancyInfo" name="discrepancyInfo" 
+            rows="5" maxlength="5000" spellcheck="true" value="data['discrepancyInfo']" ></textarea>
+          </div>
+          
+          {% else%}
             {% for feature in data['pscOptions'] %}
 
             <div class="govuk-form-group">

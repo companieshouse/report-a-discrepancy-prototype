@@ -212,6 +212,7 @@ router.get('/v2/psc-name', function (req, res) {
 router.post('/v2/psc-name', function (req, res) {
   // Create empty array
   var errors = []
+  var missing = (req.session.data['pscName'] == 'missing');
 
   // Check if user has filled out a value
   if (typeof req.session.data['pscName'] === 'undefined') {
@@ -226,10 +227,12 @@ router.post('/v2/psc-name', function (req, res) {
       errorPscName: true,
       errorList: errors
     })
-  } else {
-    // User inputted value so move to next page
-    res.redirect('/v2/psc-discrepancy-options')
-  }
+  } else if (missing)  {
+    req.session.data['pscOptions'] = 'missing'
+    res.redirect('/v2/discrepancy-details')
+    } else {
+      res.redirect('/v2/psc-discrepancy-options')
+    }
 })
 
 

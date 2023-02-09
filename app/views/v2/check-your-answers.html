@@ -159,9 +159,14 @@ Check your answers before submitting your report – {{ serviceName }} – GOV.U
           </dt>
           <dd class="govuk-summary-list__value">
             <!--Loop through checked checkboxes-->
-            {% for feature in data['pscOptions'] %}
-            {{ feature }}<br>
-            {% endfor %}
+            {% if data['pscOptions'] is string %}
+            {{ data['pscOptions'] }} {{ data['discrepancyType'] }}
+           {% else %}
+             {% for feature in data['pscOptions'] %}
+             <p>{{ feature }}</p> <br>
+             {% endfor %}
+           {% endif %}
+
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="psc-discrepancy-options">
@@ -174,9 +179,13 @@ Check your answers before submitting your report – {{ serviceName }} – GOV.U
             More information about the discrepancy
           </dt>
           <dd class="govuk-summary-list__value">
-            {% for type in data['discrepancyInfo'] %}
-             <p>{{ type }}</p> <br>
-            {% endfor %}
+            {% if data['discrepancyInfo'] is string %}
+             {{ data['discrepancyInfo'] }}
+            {% else %}
+              {% for type in data['discrepancyInfo'] %}
+              <p>{{ type }}</p> <br>
+              {% endfor %}
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="discrepancy-details">
