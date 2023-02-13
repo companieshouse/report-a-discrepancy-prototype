@@ -163,7 +163,7 @@ Check your answers before submitting your report – {{ serviceName }} – GOV.U
             {{ data['pscOptions'] }} {{ data['discrepancyType'] }}
            {% else %}
              {% for feature in data['pscOptions'] %}
-             <p>{{ feature }}</p> <br>
+             {{ feature }} <br>
              {% endfor %}
            {% endif %}
 
