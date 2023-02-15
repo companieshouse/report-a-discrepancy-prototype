@@ -20,6 +20,11 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
       </h2>
       <ul class="govuk-tabs__list">
         <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+          <a class="govuk-tabs__tab" href="#v3">
+            Version 3
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
           <a class="govuk-tabs__tab" href="#v2">
             Version 2
           </a>
@@ -30,10 +35,132 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
           </a>
         </li>
       </ul>
-      <div class="govuk-tabs__panel" id="v2">
+      <div class="govuk-tabs__panel" id="v3">
+        <h2 class="govuk-heading-l">Version 3</h2>
+
+        <h3 class="govuk-heading-m">15 February 2023</h3>
+
+        <hr>
+        <h3 class="govuk-heading-m">Shortcuts</h3>
+        <h3 class="govuk-heading-s">Journey</h3>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            <a href="v3/guidance.html" class="govuk-link govuk-link--no-visited-state">GOV.UK guidance</a>
+          </li>
+          <li>
+            <a href="v3/sign-in" class="govuk-link govuk-link--no-visited-state">Sign in</a>
+          </li>
+          <li>
+            <a href="v3/discrepancy-category" class="govuk-link govuk-link--no-visited-state">Discrepancy category</a>
+          </li>
+          <li>
+            <a href="v3/discrepancy-type" class="govuk-link govuk-link--no-visited-state">Report a PSC discrepancy a beneficial owner discrepancy?</a>
+          </li>
+          <li>
+            <a href="v3/obliged-entity-type" class="govuk-link govuk-link--no-visited-state">Obliged entity type</a>
+          </li>
+          <li>
+            <a href="v3/obliged-entity-details-organisation" class="govuk-link govuk-link--no-visited-state">Name of organisation</a>
+          </li>
+          <li>
+            <a href="v3/obliged-entity-details-name" class="govuk-link govuk-link--no-visited-state">Name of person</a>
+          </li>
+          <li>
+            <a href="v3/obliged-entity-email" class="govuk-link govuk-link--no-visited-state">Email</a>
+          </li>
+          <li>
+            <a href="v3/company-number" class="govuk-link govuk-link--no-visited-state">What is the company number for the PSC with the discrepancy</a>
+          </li>
+          <li>
+            <a href="v3/confirm-company" class="govuk-link govuk-link--no-visited-state">Confirm company</a>
+          </li>
+          <li>
+            <a href="v3/secure-psc" class="govuk-link govuk-link--no-visited-state">Secure PSC or beneficial owner</a>
+          </li>
+          <li>
+            <a href="v3/psc-name" class="govuk-link govuk-link--no-visited-state">PSC or BO names</a>
+          </li>
+          <li>
+            <a href="v3/psc-discrepancy-options" class="govuk-link govuk-link--no-visited-state">Discrepancy options</a>
+          </li>
+          <li>
+            <a href="v3/discrepancy-details" class="govuk-link govuk-link--no-visited-state">Open textbox</a>
+          </li>
+          <li>
+            <a href="v3/check-your-answers" class="govuk-link govuk-link--no-visited-state">Check answers</a>
+          </li>
+          <li>
+            <a href="v3/confirmation" class="govuk-link govuk-link--no-visited-state">Confirmation</a>
+          </li>
+        </ul>
+
+        <h3 class="govuk-heading-s">Email</h3>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            <a href="emails/confirmation-email">Confirmation email - PSC</a>
+          </li>
+          <li>
+            <a href="emails/confirmation-email-roe">Confirmation email - ROE</a>
+          </li>
+          <li>
+            <a href="emails/outcome">Outcome email - PSC</a>
+          </li>
+            <li>
+            <a href="emails/outcome-roe">Outcome email - ROE</a>
+          </li>
+        </ul>
+
+        <h3 class="govuk-heading-s">Live</h3>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            <a href="https://www.gov.uk/guidance/report-a-discrepancy-about-a-beneficial-owner-on-the-psc-register-by-an-obliged-entity" class="govuk-link govuk-link--no-visited-state">Live guidance</a>
+          </li>
+        </ul>
+
+        <h3 class="govuk-heading-s">Screen flow diagram</h3>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            <a href="https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1676452130964/1cccfa9d2fadb80f477c4df64040e90774892743?sender=u9bc72e5725f1871777091172" class="govuk-link govuk-link--no-visited-state" target="_blank">Mural screen flow diagram</a>
+          </li>
+        </ul>
+
+        <h3 class="govuk-heading-s">User research for version 1</h3>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            Not yet complete</a>
+          </li>
+        </ul>
+
+        <hr>
+
+        <h3 class="govuk-heading-s">Changes this version</h3>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>'What does the discrepancy you are reporting relate to?' screen 
+            brought back into prototype. The screen which routed the users 
+            dependent onn whether they typed a company number or overseas entity 
+            id did not test well. Therefore moving back to asking this question 
+            to route down either journey.</li><br>
+          <li>Guidence page changed to give more emphasis to when a user can report a 
+            discrepancy and move the content related to the changes from 1st April to 
+            the top</li><br>
+
+        </ul>
+
+        <hr>
+
+        <h3 class="govuk-heading-s">Prototype data</h3>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>To access PSC screens from 'What is the company number or Overseas Entity ID?' screen use any 8 digit number</li><br>
+          <li>To access Beneficial owner screens from 'What is the company number or Overseas Entity ID?' screen use 'oe' followed by any 6 numbers</li><br>
+          <li>To access secure PSC screen from 'What is the company number or Overseas Entity ID?' screen use - <b>00000000</b></li><br>
+          <li>To access secure PSC screenfrom 'What is the company number or Overseas Entity ID?' screen use - <b>oe000000</b></li><br>
+        </ul>
+
+      </div>
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="v2">
         <h2 class="govuk-heading-l">Version 2</h2>
 
-        <h3 class="govuk-heading-m">February 2023</h3>
+        <h3 class="govuk-heading-m">6 February 2023</h3>
 
         <hr>
         <h3 class="govuk-heading-m">Shortcuts</h3>
@@ -109,14 +236,18 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
           </li>
         </ul>
 
-        <hr>
-
-        <h3 class="govuk-heading-s">Prototype data</h3>
+        <h3 class="govuk-heading-s">Screen flow diagram</h3>
         <ul class="govuk-list govuk-list--bullet">
-          <li>To access PSC screens from 'What is the company number or Overseas Entity ID?' screen use any 8 digit number</li><br>
-          <li>To access Beneficial owner screens from 'What is the company number or Overseas Entity ID?' screen use 'oe' followed by any 6 numbers</li><br>
-          <li>To access secure PSC screen from 'What is the company number or Overseas Entity ID?' screen use - <b>00000000</b></li><br>
-          <li>To access secure PSC screenfrom 'What is the company number or Overseas Entity ID?' screen use - <b>oe000000</b></li><br>
+          <li>
+            <a href="https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1675341471961/3cc17b0ac1cda594c922cb0f78998a1fa43a8414?sender=u9bc72e5725f1871777091172" class="govuk-link govuk-link--no-visited-state" target="_blank">Mural screen flow diagram</a>
+          </li>
+        </ul>
+
+        <h3 class="govuk-heading-s">User research for version 2</h3>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            <a href="https://companieshouse-my.sharepoint.com/:p:/g/personal/ahooper_companieshouse_gov_uk/EaaeD8rAaVhHqHgZqQ_wkUQBIHQLJ9uJIjRM-V3QeCChbQ?e=4%3ACLL9Xp&at=9" class="govuk-link govuk-link--no-visited-state" target="_blank">User research powerpoint</a>
+          </li>
         </ul>
 
         <hr>
@@ -136,22 +267,19 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
 
         <hr>
 
-        <h3 class="govuk-heading-s">Screen flow diagram</h3>
-
-        <p class="govuk-body"><a href="https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1675341471961/3cc17b0ac1cda594c922cb0f78998a1fa43a8414?sender=u9bc72e5725f1871777091172" class="govuk-link govuk-link--no-visited-state" target="_blank">Mural screen flow diagram</a></p>
-
-
-        <hr>
-
-        <h3 class="govuk-heading-s">User research for version 2</h3>
-
-        <p>tbd</p>
+        <h3 class="govuk-heading-s">Prototype data</h3>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>To access PSC screens from 'What is the company number or Overseas Entity ID?' screen use any 8 digit number</li><br>
+          <li>To access Beneficial owner screens from 'What is the company number or Overseas Entity ID?' screen use 'oe' followed by any 6 numbers</li><br>
+          <li>To access secure PSC screen from 'What is the company number or Overseas Entity ID?' screen use - <b>00000000</b></li><br>
+          <li>To access secure PSC screenfrom 'What is the company number or Overseas Entity ID?' screen use - <b>oe000000</b></li><br>
+        </ul>
 
       </div>
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="v1">
         <h2 class="govuk-heading-l">Version 1</h2>
 
-        <h3 class="govuk-heading-m">January 2023</h3>
+        <h3 class="govuk-heading-m">23 January 2023</h3>
 
         <hr>
 
@@ -231,6 +359,22 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
           </li>
         </ul>
 
+        <h3 class="govuk-heading-s">Screen flow diagram</h3>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            <a href="https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1673273178914/1ec0461fd86fa84f5e9e1441767b2d5086b107a8?sender=u9bc72e5725f1871777091172" class="govuk-link govuk-link--no-visited-state" target="_blank">Mural screen flow diagram</a>
+          </li>
+        </ul>
+
+        <h3 class="govuk-heading-s">User research for version 1</h3>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            <a href="https://companieshouse-my.sharepoint.com/:p:/g/personal/ahooper_companieshouse_gov_uk/EbAexh_F0_JKtXPppY8wkxcBTmd75SjXTuThPUYpcLv-xg?e=4%3ABTjnCB&at=9" class="govuk-link govuk-link--no-visited-state" target="_blank">User research powerpoint</a>
+          </li>
+          <li>
+            <a href="https://companieshouse.atlassian.net/wiki/spaces/IES/pages/4076961955/Round+1+V1+Recommendations+and+actions" class="govuk-link govuk-link--no-visited-state" target="_blank">User research recommondations</a>
+          </li>
+        </ul>
         <hr>
 
         <h3 class="govuk-heading-m">Prototype data</h3>
@@ -241,19 +385,6 @@ Home – {{serviceName}} – GOV.UK Prototype Kit
           <li>To access secure PSC screenfrom 'What is the company number or Overseas Entity ID?' screen use - <b>oe000000</b></li><br>
         </ul>
 
-        <hr>
-
-        <h3 class="govuk-heading-m">Screen flow diagram</h3>
-
-        <p class="govuk-body"><a href="https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1673273178914/1ec0461fd86fa84f5e9e1441767b2d5086b107a8?sender=u9bc72e5725f1871777091172" class="govuk-link govuk-link--no-visited-state" target="_blank">Mural screen flow diagram</a></p>
-
-        <hr>
-        
-        <h3 class="govuk-heading-m">User research for version 1</h3>
-
-        <p class="govuk-body"><a href="https://companieshouse-my.sharepoint.com/:p:/g/personal/ahooper_companieshouse_gov_uk/EbAexh_F0_JKtXPppY8wkxcBTmd75SjXTuThPUYpcLv-xg?e=4%3ABTjnCB&at=9" class="govuk-link govuk-link--no-visited-state" target="_blank">User research powerpoint</a></p>
-
-        <p class="govuk-body"><a href="https://companieshouse.atlassian.net/wiki/spaces/IES/pages/4076961955/Round+1+V1+Recommendations+and+actions" class="govuk-link govuk-link--no-visited-state" target="_blank">User research recommondations</a></p>
       </div>
     </div>
 

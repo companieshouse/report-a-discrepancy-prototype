@@ -1,0 +1,218 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Check your answers before submitting your report – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% include "../includes/phase-banner.html" %}
+{% include "../includes/account-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-l">
+        Check your answers before submitting your report
+      </h1>
+
+      <h2 class="govuk-heading-m">Personal details</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['fullName'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="obliged-entity-details-name">
+              Change<span class="govuk-visually-hidden">name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Email address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['email'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="obliged-entity-email">
+              Change<span class="govuk-visually-hidden">email</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Organisation name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['organisationName'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="obliged-entity-details-organisation">
+              Change<span class="govuk-visually-hidden">your-organisation-name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Organisation type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['obligedType'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="obliged-entity-type">
+              Change<span class="govuk-visually-hidden">obliged-type</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      {% if data['discrepancyType'] == 'PSC' %}
+        <h2 class="govuk-heading-m">Company details for the PSC with the discrepancy</h2>
+      {% else %}
+        <h2 class="govuk-heading-m">Overseas entity details for the registrable beneficial owner with the discrepancy</h2>
+      {% endif %}
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            <!--Check if user selected PSC or BO on previous page and change content to suit-->
+            {% if data['discrepancyType'] == 'PSC' %}
+              Company number
+            {% else %}
+              Overseas Entity ID
+            {% endif %}
+          </dt>
+          <dd class="govuk-summary-list__value" style="text-transform: uppercase">
+            {{ data['companyNumber'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="company-number">
+              Change<span class="govuk-visually-hidden">company_number</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            <!--Check if user selected PSC or BO on previous page and change content to suit-->
+            {% if data['discrepancyType'] == 'PSC' %}
+              Company name
+            {% else %}
+              Overseas entity name
+            {% endif %}
+          </dt>
+          <dd class="govuk-summary-list__value">
+          {% if data['discrepancyType'] == 'PSC' %}
+            BIG SHOP LTD
+          {% else %}
+            INVESTMENT HOLDINGS LTD
+          {% endif %}
+            
+          </dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-m">Discrepancy details</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+              Name of registrable {{ data['discrepancyType'] }} 
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['pscName'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="psc-name">
+              Change<span class="govuk-visually-hidden">name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            What the discrepancy relates to
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <!--Loop through checked checkboxes-->
+            {% for feature in data['discrepancyCategory'] %}
+            {{ feature }}<br>
+            {% endfor %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="discrepancy-Category">
+              Change<span class="govuk-visually-hidden">discrepancy-Category</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Type of discrepancy
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <!--Loop through checked checkboxes-->
+            {% if data['pscOptions'] is string %}
+            {{ data['pscOptions'] }} {{ data['discrepancyType'] }}
+           {% else %}
+             {% for feature in data['pscOptions'] %}
+             {{ feature }} <br>
+             {% endfor %}
+           {% endif %}
+
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="psc-discrepancy-options">
+              Change<span class="govuk-visually-hidden">psc-discrepancy-options</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            More information about the discrepancy
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if data['discrepancyInfo'] is string %}
+             {{ data['discrepancyInfo'] }}
+            {% else %}
+              {% for type in data['discrepancyInfo'] %}
+              <p>{{ type }}</p> <br>
+              {% endfor %}
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="discrepancy-details">
+              Change<span class="govuk-visually-hidden">discrepancy-details</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-m">Now submit your report</h2>
+      <p class="govuk-body">By submitting this report you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+      <form class="form" action="{{currentUrl}}" method="post">
+
+        <button class="govuk-button" data-module="govuk-button">Submit report</button>
+
+      </form>
+    </div>
+  </div>
+
+
+
+    </div>
+  </div>
+
+{% endblock %}

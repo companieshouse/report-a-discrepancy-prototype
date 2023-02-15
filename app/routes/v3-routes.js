@@ -1,15 +1,15 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
-// ******* Company number validation ********************************
-router.get('/v1/company-number', function (req, res) {
+// ******* company-number validation ********************************
+router.get('/v3/company-number', function (req, res) {
   // Set URl
-  res.render('v1/company-number', {
+  res.render('v3/company-number', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v1/company-number', function (req, res) {
+router.post('/v3/company-number', function (req, res) {
   // Create empty array
   var errors = []
   var i = req.session.data['companyNumber'].toUpperCase();
@@ -23,42 +23,41 @@ router.post('/v1/company-number', function (req, res) {
     })
 
     // Re-show page with error value as true so errors will show
-    res.render('v1/company-number', {
+    res.render('v3/company-number', {
       errorNum: true,
       errorList: errors
     })
   } else if (i == '00000000' || i == 'OE000000')  {
     // User inputted specific value so move to secure page
-    res.redirect('/v1/secure-psc')
+    res.redirect('/v3/secure-psc')
   } else {
     // User inputted value so move to next page
-    res.redirect('/v1/confirm-company')
+    res.redirect('/v3/confirm-company')
   }
 })
 
-
-// ******* Confirm Company redirect ********************************
-router.get('/v1/confirm-company', function (req, res) {
+// ******* confirm-company redirect ********************************
+router.get('/v3/confirm-company', function (req, res) {
   // Set URl
-  res.render('v1/confirm-company', {
+  res.render('v3/confirm-company', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v1/confirm-company', function (req, res) {
-  res.redirect('/v1/psc-name')
+router.post('/v3/confirm-company', function (req, res) {
+  res.redirect('/v3/psc-name')
 })
 
 
-// ******* Discrepancy details validation ********************************
-router.get('/v1/discrepancy-details', function (req, res) {
+// ******* discrepancy-details validation ********************************
+router.get('/v3/discrepancy-details', function (req, res) {
   // Set URl
-  res.render('v1/discrepancy-details', {
+  res.render('v3/discrepancy-details', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v1/discrepancy-details', function (req, res) {
+router.post('/v3/discrepancy-details', function (req, res) {
   // Create empty array
   var errors = []
 
@@ -71,39 +70,39 @@ router.post('/v1/discrepancy-details', function (req, res) {
     })
 
     // Re-show page with error value as true so errors will show
-    res.render('v1/discrepancy-details', {
+    res.render('v3/discrepancy-details', {
       errorDiscrepancyInfo: true,
       errorList: errors
     })
   } else {
     // User inputted value so move to next page
-    res.redirect('/v1/check-your-answers')
+    res.redirect('/v3/check-your-answers')
   }
 })
 
 
-// ******* Check your answers redirect ********************************
-router.get('/v1/check-your-answers', function (req, res) {
+// ******* check-your-answers redirect ********************************
+router.get('/v3/check-your-answers', function (req, res) {
   // Set URl
-  res.render('v1/check-your-answers', {
+  res.render('v3/check-your-answers', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v1/check-your-answers', function (req, res) {
-  res.redirect('/v1/confirmation')
+router.post('/v3/check-your-answers', function (req, res) {
+  res.redirect('/v3/confirmation')
 })
 
 
-// ******* Oblighed entity name validation ********************************
-router.get('/v1/obliged-entity-details-name', function (req, res) {
+// ******* oblighed-entity-details-name validation ********************************
+router.get('/v3/obliged-entity-details-name', function (req, res) {
   // Set URl
-  res.render('v1/obliged-entity-details-name', {
+  res.render('v3/obliged-entity-details-name', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v1/obliged-entity-details-name', function (req, res) {
+router.post('/v3/obliged-entity-details-name', function (req, res) {
   // Create empty array
   var errors = []
 
@@ -116,26 +115,26 @@ router.post('/v1/obliged-entity-details-name', function (req, res) {
     })
 
     // Re-show page with error value as true so errors will show
-    res.render('v1/obliged-entity-details-name', {
+    res.render('v3/obliged-entity-details-name', {
       errorName: true,
       errorList: errors
     })
   } else {
     // User inputted value so move to next page
-    res.redirect('/v1/obliged-entity-email')
+    res.redirect('/v3/obliged-entity-email')
   }
 })
 
 
-// ******* psc options validation ********************************
-router.get('/v1/psc-discrepancy-options', function (req, res) {
+// ******* psc-discrepancy-options validation ********************************
+router.get('/v3/psc-discrepancy-options', function (req, res) {
   // Set URl
-  res.render('v1/psc-discrepancy-options', {
+  res.render('v3/psc-discrepancy-options', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v1/psc-discrepancy-options', function (req, res) {
+router.post('/v3/psc-discrepancy-options', function (req, res) {
   // Create empty array
   var errors = []
 
@@ -148,26 +147,26 @@ router.post('/v1/psc-discrepancy-options', function (req, res) {
     })
 
     // Re-show page with error value as true so errors will show
-    res.render('v1/psc-discrepancy-options', {
+    res.render('v3/psc-discrepancy-options', {
       errorPscOptions: true,
       errorList: errors
     })
   } else {
     // User inputted value so move to next page
-    res.redirect('/v1/discrepancy-details')
+    res.redirect('/v3/discrepancy-details')
   }
 })
 
 
-// ******* discrepancy category validation ********************************
-router.get('/v1/discrepancy-category', function (req, res) {
+// ******* discrepancy-category validation ********************************
+router.get('/v3/discrepancy-category', function (req, res) {
   // Set URl
-  res.render('v1/discrepancy-category', {
+  res.render('v3/discrepancy-category', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v1/discrepancy-category', function (req, res) {
+router.post('/v3/discrepancy-category', function (req, res) {
   // Create empty array
   var errors = [];
   var i = req.session.data['discrepancyCategory'];
@@ -181,31 +180,29 @@ router.post('/v1/discrepancy-category', function (req, res) {
     })
 
     // Re-show page with error value as true so errors will show
-    res.render('v1/discrepancy-category', {
+    res.render('v3/discrepancy-category', {
       errorDiscrepancyCategory: true,
       errorList: errors
     })
-  } else if (i == 'Something else')  {
-    // User inputted value so move to next page
-    res.redirect('/v1/no-category')
   } else {
       // User inputted value so move to next page
-      res.redirect('/v1/discrepancy-type')
+      res.redirect('/v3/discrepancy-type')
     }
 })
 
 
-// ******* psc name validation ********************************
-router.get('/v1/psc-name', function (req, res) {
+// ******* psc-name validation ********************************
+router.get('/v3/psc-name', function (req, res) {
   // Set URl
-  res.render('v1/psc-name', {
+  res.render('v3/psc-name', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v1/psc-name', function (req, res) {
+router.post('/v3/psc-name', function (req, res) {
   // Create empty array
   var errors = []
+  var missing = (req.session.data['pscName'] == 'missing');
 
   // Check if user has filled out a value
   if (typeof req.session.data['pscName'] === 'undefined') {
@@ -216,26 +213,28 @@ router.post('/v1/psc-name', function (req, res) {
     })
 
     // Re-show page with error value as true so errors will show
-    res.render('v1/psc-name', {
+    res.render('v3/psc-name', {
       errorPscName: true,
       errorList: errors
     })
-  } else {
-    // User inputted value so move to next page
-    res.redirect('/v1/psc-discrepancy-options')
-  }
+  } else if (missing)  {
+    req.session.data['pscOptions'] = 'missing'
+    res.redirect('/v3/discrepancy-details')
+    } else {
+      res.redirect('/v3/psc-discrepancy-options')
+    }
 })
 
 
-// ******* discrepancy type validation ********************************
-router.get('/v1/discrepancy-type', function (req, res) {
+// ******* discrepancy-type validation ********************************
+router.get('/v3/discrepancy-type', function (req, res) {
   // Set URl
-  res.render('v1/discrepancy-type', {
+  res.render('v3/discrepancy-type', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v1/discrepancy-type', function (req, res) {
+router.post('/v3/discrepancy-type', function (req, res) {
   // Create empty array
   var errors = []
 
@@ -248,26 +247,26 @@ router.post('/v1/discrepancy-type', function (req, res) {
     })
 
     // Re-show page with error value as true so errors will show
-    res.render('v1/discrepancy-type', {
+    res.render('v3/discrepancy-type', {
       errorDiscrepancyType: true,
       errorList: errors
     })
   } else {
     // User inputted value so move to next page
-    res.redirect('/v1/obliged-entity-type')
+    res.redirect('/v3/obliged-entity-type')
   }
 })
 
 
-// ******* Oblighed entity org validation ********************************
-router.get('/v1/obliged-entity-details-organisation', function (req, res) {
+// ******* oblighed-entity-details-organisation validation ********************************
+router.get('/v3/obliged-entity-details-organisation', function (req, res) {
   // Set URl
-  res.render('v1/obliged-entity-details-organisation', {
+  res.render('v3/obliged-entity-details-organisation', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v1/obliged-entity-details-organisation', function (req, res) {
+router.post('/v3/obliged-entity-details-organisation', function (req, res) {
   // Create empty array
   var errors = []
 
@@ -280,26 +279,26 @@ router.post('/v1/obliged-entity-details-organisation', function (req, res) {
     })
 
     // Re-show page with error value as true so errors will show
-    res.render('v1/obliged-entity-details-organisation', {
+    res.render('v3/obliged-entity-details-organisation', {
       errorOrganisation: true,
       errorList: errors
     })
   } else {
     // User inputted value so move to next page
-    res.redirect('/v1/obliged-entity-details-name')
+    res.redirect('/v3/obliged-entity-details-name')
   }
 })
 
 
-// ******* Oblighed entity email validation ********************************
-router.get('/v1/obliged-entity-email', function (req, res) {
+// ******* oblighed-entity-email validation ********************************
+router.get('/v3/obliged-entity-email', function (req, res) {
   // Set URl
-  res.render('v1/obliged-entity-email', {
+  res.render('v3/obliged-entity-email', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v1/obliged-entity-email', function (req, res) {
+router.post('/v3/obliged-entity-email', function (req, res) {
   // Create empty array
   var errors = []
 
@@ -312,26 +311,26 @@ router.post('/v1/obliged-entity-email', function (req, res) {
     })
 
     // Re-show page with error value as true so errors will show
-    res.render('v1/obliged-entity-email', {
+    res.render('v3/obliged-entity-email', {
       errorEmail: true,
       errorList: errors
     })
   } else {
     // User inputted value so move to next page
-    res.redirect('/v1/company-number')
+    res.redirect('/v3/company-number')
   }
 })
 
 
-// ******* Oblighed entity validation ********************************
-router.get('/v1/obliged-entity-type', function (req, res) {
+// ******* oblighed-entity-type validation ********************************
+router.get('/v3/obliged-entity-type', function (req, res) {
   // Set URl
-  res.render('v1/obliged-entity-type', {
+  res.render('v3/obliged-entity-type', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v1/obliged-entity-type', function (req, res) {
+router.post('/v3/obliged-entity-type', function (req, res) {
   // Create empty array
   var errors = []
 
@@ -344,27 +343,27 @@ router.post('/v1/obliged-entity-type', function (req, res) {
     })
 
     // Re-show page with error value as true so errors will show
-    res.render('v1/obliged-entity-type', {
+    res.render('v3/obliged-entity-type', {
       errorType: true,
       errorList: errors
     })
   } else {
     // User inputted value so move to next page
-    res.redirect('/v1/obliged-entity-details-organisation')
+    res.redirect('/v3/obliged-entity-details-organisation')
   }
 })
 
 
 
-// ******* Sign in validation ********************************
-router.get('/v1/sign-in', function (req, res) {
+// ******* sign-in validation ********************************
+router.get('/v3/sign-in', function (req, res) {
   // Set URl
-  res.render('v1/sign-in', {
+  res.render('v3/sign-in', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/v1/sign-in', function (req, res) {
+router.post('/v3/sign-in', function (req, res) {
   // Create empty array and set error variables to false
   var errors = []
   var emailHasError = false
@@ -393,14 +392,14 @@ router.post('/v1/sign-in', function (req, res) {
   // Check if eother filed not filled out
   if (emailHasError || passwordHasError) {
     // Re-show page with error value as true so errors will show
-    res.render('v1/sign-in', {
+    res.render('v3/sign-in', {
       errorEmail: emailHasError,
       errorPassword: passwordHasError,
       errorList: errors
     })
   } else {
     // User inputted value so move to next page
-    res.redirect('/v1/discrepancy-category')
+    res.redirect('/v3/discrepancy-category')
   }
 })
 
