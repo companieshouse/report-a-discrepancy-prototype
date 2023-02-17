@@ -72,7 +72,7 @@
         <a class="govuk-link govuk-body-s govuk-link--no-underline" href="#why-report-a-discrepancy">Why you need to report a discrepancy</a>
       </li>
       <li>
-        <a class="govuk-link govuk-body-s govuk-link--no-underline" href="#what-is-not-a-discrepancy">What is not a discrepancy</a>
+        <a class="govuk-link govuk-body-s govuk-link--no-underline" href="#what-is-not-a-discrepancy">What you do not need to report</a>
       </li>
       <li>
         <a class="govuk-link govuk-body-s govuk-link--no-underline" href="#when-to-make-a-discrepancy-report">When to make a discrepancy report</a>
@@ -214,78 +214,79 @@
     <p class="govuk-body"><a href="https://www.gov.uk/guidance/money-laundering-regulations-report-suspicious-activities#:~:text=Suspicious%20activity%20or%20transactions,-There%20are%20many&text=a%20customer%20has%20tried%20to,did%20not%20add%20up%20commercially" class="govuk-link">Tell us about suspicious activity that may be linked to money laundering</a> to submit a SAR to the National Crime Agency or HMRC.  </p>
     
 
-    <h3 id="what-is-not-a-discrepancy" class="govuk-heading-m govuk-!-font-size-27">What is not a discrepancy</h3>
+    <h3 id="what-is-not-a-discrepancy" class="govuk-heading-m govuk-!-font-size-27">What you do not need to report</h3>
     <p class="govuk-body">You do not need to report the following:</p>
 
-    <ul class="govuk-list govuk-list--bullet">
+    <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+         <li>if a discrepancy is not reasonably considered to be linked to money laundering, terrorist financing or concealing details of the business of the customer, it does not need to be reported to Companies House </li>
       <li>if you’ve already made a discrepancy report, you do not need to report the same discrepancy again</li>
-      <li>if the discrepancy is resolved in the time between identifying it and submitting a report, you do 
-        not need to report it</li>
-      <li>it is not a discrepancy when the entity holds information that we do not include on the register</li>
-      <li>a spelling error is not a discrepancy, for example, Jon Smith instead of John Smith, or a missing 
-        or slightly different spelling of a middle name</li>
-      <li>minor variations in an address is not a discrepancy, or where a nationality of Welsh, English, 
+      <li>if the discrepancy is resolved by the company before you submit a report, you do not need to report it</li>
+      <li>when an obliged entity holds information that is not required to be included on the Companies House register </li>
+      <li>a spelling error - for example, Jon Smith instead of John Smith, or a missing or slightly different spelling of a middle name</li>
+      <li>a shortened name - for example, Jim instead of James </li>
+      <li>minor variations in an address, or where a nationality of Welsh, English, 
         Scottish or Northern Irish is given but the register shows UK</li>
-      <li>a PSC or beneficial owner of an overseas entity must own more than 25% of shares to be registrable, so you do not need to report them missing if they own 25% or less (this does not impact people who are PSCs because they control the 
-        company in another way)</li>
       <li>where a company has claimed an exemption from providing their PSC details because they are 
-        trading on a regulated market, PSC details will not be shown on the register so you do not need 
-        to report a discrepancy</li>
+        trading on a regulated market, PSC details will not be shown on the register</li>
+        <li>a PSC or beneficial owner of an overseas entity must own more than 25% of shares to be registrable, so you do not need to report them missing if they own 25% or less (this does not impact people who are PSCs or registrable beneficial owners because they control the 
+        company in another way)</li>
     </ul>
 
-    <p class="govuk-body">Obliged entities can advise the company to contact us to correct minor errors.</p>
+     <p class="govuk-body">Read the <a href="https://www.gov.uk/guidance/people-with-significant-control-pscs#identifying-your-psc" class="govuk-link">People with Significant Control (PSCs) guidance</a> for more information. </p>
 
-    <p class="govuk-body govuk-!-font-weight-bold">If a beneficial owner’s correspondence address is 
-      different from the service address on the register</p>
+     {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+{{ govukInsetText({
+  text: "Obliged entities can advise the company to contact us to correct minor errors."
+}) }}
 
-    <p class="govuk-body">The address shown for a PSC or beneficial owner of an overseas entity on Companies House records is a service address - 
-      this does not have to be their home address. Obliged entities should take this into consideration.</p>
+    <p class="govuk-body govuk-!-font-weight-bold">If the correspondence address is different from the service address on the Companies House register</p>
 
-    <p class="govuk-body">PSCs and beneficial owners of an overseas entity must provide their home address to Companies House, but it’s kept on a 
-      private register. It’s only available on request to credit reference agencies and specified public 
-      authorities.</p>
+    <p class="govuk-body">The address shown for a PSC or a registrable beneficial owner on Companies House register is a correspondence address, which is also known as a service address. This does not have to be their home address. Obliged entities should take this into consideration.</p>
+
+    <p class="govuk-body">PSCs and beneficial owners of an overseas entity must provide their home address to Companies House, but it’s kept on a private register. It’s only available on request to credit reference agencies (unless their details are protected) and specified public authorities.</p>
 
     <p class="govuk-body">As their home address is not available on the public register, it might not 
       be a discrepancy if it does not match the address given to an obliged entity. If the address a 
-      client has provided is different to what is shown on the register, you may wish to check with 
-      them if they have used an alternative to their home address as a service address.</p>
+      client has provided is different to what is shown on the register, you should consider checking with them if they have used an alternative to their home address as a correspondence address. </p>
     
-    <p class="govuk-body">You should only make a report when there is a clear discrepancy between the 
-      same types of address.</p>
+    <p class="govuk-body">You should only make a report when there is a clear and material discrepancy between the same types of address.</p>
 
 
     <h3 id="when-to-make-a-discrepancy-report" class="govuk-heading-m govuk-!-font-size-27">When to make a discrepancy report</h3>
 
-    <p class="govuk-body">Obliged entities must make a report if they find a discrepancy when setting up 
-      a new business relationship with a customer.</p>
+    <p class="govuk-body">Obliged entities must make a report if they find a material discrepancy when setting up a new business relationship with a customer, and when carrying out further due diligence checks throughout that relationship. </p>
+
+        <p class="govuk-body">You should report a material discrepancy as soon as reasonably possible after identifying it. This should be decided by the obliged entity but, as a general rule, we recommend it should be reported within 30 days of identifying it, unless it is resolved by the customer. The final decision on when to report should be decided by the obliged entity, taking into account any risks involved.</p>
     
-    <p class="govuk-body">You should report a discrepancy as soon as possible. Bulk reporting is not 
-      allowed, so obliged entities must not wait to make reports in bulk as this means the register 
-      will not be up to date.</p>
+    <p class="govuk-body">Bulk reporting is not 
+      allowed. Obliged entities must not wait to make reports in bulk, as this means the register will not be up to date.</p>
 
 
     
 
     <h3 id="start" class="govuk-heading-m govuk-!-font-size-27">Make a discrepancy report</h3>
+
+ <p class="govuk-body">From 1 April 2023, an amendment to the regulations means that you can only use this service to report a material discrepancy if it can be reasonably considered to relate to one or more of the following:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>money laundering</li>
+        <li>terrorist financing</li>
+        <li>appears to conceal details of the business of the customer</li>
+   </ul>
+  
+  <p class="govuk-body"><a href="../v3/guidance#what-a-discrepancy-is" class="govuk-link">Find out more information about the amendment and what a material discrepancy is</a>. </p>
+
     <p class="govuk-body">To report a discrepancy, you'll need:</p>
     <ul class="govuk-list govuk-list--bullet">
-       <li>to tell us what the discrepancy you are reporting relates to</li>
+       <li>to tell us what the discrepancy you are reporting relates to (money laundering, terrorist financing or concealment)</li>
       <li>the company number or Overseas Entity ID of the company or entity being reported as having a discrepancy</li>
       <li>the type of discrepancy</li>
-      <li>the information on the  register you believe is incorrect, for example an incorrect address or an error in the nature of control</li>
+      <li>the information on the  register you believe is incorrect - for example, an incorrect address or an error in the nature of control</li>
       <li>the correct information as you believe it should be shown on the register</li>
       <li>any other relevant information about the discrepancy that supports the report</li>
     </ul>
- <p class="govuk-body">From 1 April 2023, you can only use this service to report a discrepancy if it:</p>
-      <ul class="govuk-list govuk-list--bullet">
-        <li>relates to money laundering</li>
-        <li>relates to terrorist financing</li>
-        <li>appears to conceal details of the business of the customer</li>
-   </ul>
-   <p class="govuk-body">If the discrepancy relates to money laundering or terrorist financing, you must also report this to any organisations you are obliged to report to.</p>
  
 
-    <p>Reporting a discrepancy takes up to 10 minutes. The service will time out after 30 minutes and your answers will not be saved.
+    <p>Reporting a discrepancy usually takes up to 10 minutes. The service will time out if you do not use it for 30 minutes and you cannot save your answers.
     </p>
     {{ govukButton({
       text: "Start now",
@@ -317,11 +318,11 @@
         <a class="govuk-link" href="#">pscdiscrepancies@companieshouse.gov.uk</a>
       </li>
     </ul>
-    <h4 class="govuk-heading-s">Reporting a PSC who has their details protected</h4>
+    <h4 class="govuk-heading-s">Reporting a PSC or registrable beneficial owner who has their details protected</h4>
     <div class="govuk-inset-text">
-      <p class="govuk-body">If one or more PSC for a company has their details protected, you will not 
+      <p class="govuk-body">If one or more PSC or registrable beneficial owner has their details protected, you will not 
         be able to use this service to report a discrepancy. Contact us by telephone on 0303 1234 500 
-        if you need to report a discrepancy about a PSC who has their details protected.</p>
+        if you need to report a discrepancy about someone who has their details protected.</p>
     </div>
 
 
@@ -331,10 +332,10 @@
     <ul class="govuk-list govuk-list--bullet">
       <li>the name of the obliged entity (if an individual)</li>
       <li>the email address of the obliged entity (if an individual)</li>
-      <li>the name of the person with significant control (PSC) or beneficial owner reported as having a discrepancy</li>
-      <li>the date of birth of the PSC or beneficial owner reported as having a discrepancy</li>
-      <li>the nationality of the PSC or beneficial owner reported as having a discrepancy</li>
-      <li>the postal address of the PSC  or beneficial owner reported as having a discrepancy</li>
+      <li>the name of the PSC or registrable beneficial owner reported as having a discrepancy</li>
+      <li>the date of birth of the PSC or registrable beneficial owner reported as having a discrepancy</li>
+      <li>the nationality of the PSC or registrable beneficial owner reported as having a discrepancy</li>
+      <li>the postal address of the PSC  or registrable beneficial owner reported as having a discrepancy</li>
       <li>any other personal information voluntarily provided by the person submitting the report</li>
     </ul>
 
@@ -346,7 +347,7 @@
     <p class="govuk-body">The obliged entity’s personal information will be used to contact them for 
       more information if needed, and to tell them the outcome of the discrepancy report. The information 
       will be stored on the internal Companies House database along with the associated discrepancy report.</p>
-    <p class="govuk-body">The personal information of the obliged entity and the PSC or beneficial owner identified in the 
+    <p class="govuk-body">The personal information of the obliged entity and the PSC or registrable beneficial owner identified in the 
       discrepancy report will not be made available to the public, although the information may already 
       be on the public register for filing purposes.</p>
 
@@ -357,7 +358,7 @@
 
     <h3 class="govuk-heading-s">How long the personal information is stored</h3>
     <p class="govuk-body">Companies House will hold the personal information of the obliged entity and 
-      PSC or beneficial owner in the discrepancy report on the Companies House database for 10 years.</p>
+      PSC or registrable beneficial owner in the discrepancy report on the Companies House database for 10 years.</p>
 
     <h3 class="govuk-heading-s">Legal basis for the use of the personal information </h3>
     <p class="govuk-body">Companies House has a legal obligation to collect this information.</p>
