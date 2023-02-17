@@ -85,6 +85,9 @@ Which PSC has a discrepancy for {{company_name}} – {{ serviceName }} – GOV.U
                 <label class="govuk-label govuk-checkboxes__label" for="discrepancyCategory-3">
                   It appears to conceal details of the business of the customer
                 </label>
+                 <div id="nationality-item-hint" class="govuk-hint govuk-checkboxes__hint">
+       This includes intentional and unintentional concealment
+        </div>
               </div>
             </div>
           </fieldset>
@@ -92,7 +95,7 @@ Which PSC has a discrepancy for {{company_name}} – {{ serviceName }} – GOV.U
         {% endif %}
 
         {{ govukInsetText({
-  text: "If the discrepancy relates to money laundering or terrorist financing, you must also report this to any organisations you are obliged to report to."
+  text: "You may also want to consider whether the money laundering regulations also require you to submit a Suspicious Activity Report (SAR)."
 }) }}
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
