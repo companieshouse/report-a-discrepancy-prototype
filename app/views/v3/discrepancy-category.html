@@ -61,11 +61,11 @@ Which PSC has a discrepancy for {{company_name}} – {{ serviceName }} – GOV.U
           <fieldset class="govuk-fieldset" aria-describedby="discrepancyCategory-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
-                What does the discrepancy you are reporting relate to?
+                What does the discrepancy relate to?
               </h1>
             </legend>
             <div id="discrepancyCategory-hint" class="govuk-hint">
-              Select all that apply. You can only use this service to report a discrepancy if it can be reasonably considered to relate to at least one of these options.
+               You can only use this service to report a discrepancy if it can be reasonably considered to relate to at least one of these options. Select all that apply.
             </div>
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
               <div class="govuk-checkboxes__item">
@@ -86,7 +86,7 @@ Which PSC has a discrepancy for {{company_name}} – {{ serviceName }} – GOV.U
                   It appears to conceal details of the business of the customer
                 </label>
                  <div id="nationality-item-hint" class="govuk-hint govuk-checkboxes__hint">
-       This includes intentional and unintentional concealment
+       This includes if it is intentional and unintentional
         </div>
               </div>
             </div>
@@ -95,7 +95,7 @@ Which PSC has a discrepancy for {{company_name}} – {{ serviceName }} – GOV.U
         {% endif %}
 
         {{ govukInsetText({
-  text: "You may also want to consider whether the Money Laundering Regulations also require you to submit a Suspicious Activity Report (SAR)."
+  text: "You may want to consider whether the Money Laundering Regulations also require you to submit a Suspicious Activity Report (SAR)."
 }) }}
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
