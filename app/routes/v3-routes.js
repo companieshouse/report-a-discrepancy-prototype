@@ -58,20 +58,22 @@ router.get('/v3/discrepancy-details', function (req, res) {
 })
 
 router.post('/v3/discrepancy-details', function (req, res) {
-  // Create empty array
   var errors = []
+  var discrepancyHasError = false
 
-  // Check if user has filled out a value
-  if (req.session.data['discrepancyInfo'] === ''){
-    // No value so add error to array
+  if (req.session.data['discrepancyInfo'] === '') {
+    discrepancyHasError = true
     errors.push({
       text: 'Enter the information that is incorrect',
       href: '#discrepancyInfo'
     })
+  }
 
+  // Check if ether filed not filled out
+  if ( discrepancyHasError) {
     // Re-show page with error value as true so errors will show
     res.render('v3/discrepancy-details', {
-      errorDiscrepancyInfo: true,
+      errorDiscrepancyInfo: discrepancyHasError,
       errorList: errors
     })
   } else {

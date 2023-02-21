@@ -44,47 +44,35 @@ Give us more information about the discrepancy – {{ serviceName }} – GOV.UK 
         <p class="govuk-body">If you’re reporting a missing registrable {{ data['discrepancyType'] }}, you 
           need to tell us the name of the {{ data['discrepancyType'] }} who is missing.</p>
 
-<h2 class="govuk-heading-m">Discrepancy information</h2>
-
         <form class="form" action="{{currentUrl}}" method="post">
-          {% if errorDiscrepancyInfo == true %}
-          {{ govukCharacterCount({
-            name: "discrepancyInfo",
-            id: "discrepancyInfo",
-            maxlength: 5000,
-            value: data['discrepancyInfo'],
-            spellcheck: true,
-            label: {
-              html: "Discrepancy information"
-            },
-            errorMessage: {
-              text: "Enter the information that is incorrect"
-            }
-          }) }}
-
-          {% elif data['pscName'] == 'missing' %}
-          <div class="govuk-form-group">
-            <label class="govuk-label" for="discrepancyInfo">
-              Missing {{ data['discrepancyType'] }} 
-            </label>
-            <textarea class="govuk-textarea" id="discrepancyInfo" name="discrepancyInfo" 
-            rows="5" maxlength="5000" spellcheck="true" value="data['discrepancyInfo']" ></textarea>
-          </div>
-          
-          {% else%}
-            {% for feature in data['pscOptions'] %}
-
-            <div class="govuk-form-group">
-              <label class="govuk-label" for="discrepancyInfo">
-                {{ feature }}
-              </label>
-              <textarea class="govuk-textarea" id="discrepancyInfo" name="discrepancyInfo" 
-              rows="5" maxlength="5000" spellcheck="true" value="data['discrepancyInfo']" ></textarea>
+            {% if errorDiscrepancyInfo == true %}
+            <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="5000">
+              <div class="govuk-form-group govuk-form-group--error">
+                <label class="govuk-label" for="discrepancyInfo">
+                  Discrepancy information
+                </label>
+                <p id="discrepancyInfo-error" class="govuk-error-message">
+                  <span class="govuk-visually-hidden">Error:</span> Enter the information that is incorrect
+                </p>
+                <textarea class="govuk-textarea govuk-js-character-count" id="discrepancyInfo" name="discrepancyInfo" rows="5" value="discrepancyInfo"></textarea>
+              </div>
+              <div id="discrepancyInfo-info" class="govuk-hint govuk-character-count__message">
+                You can enter up to 5000 characters
+              </div>
             </div>
-
-            {% endfor %}
-
-          {% endif %}
+            {% else %}
+            <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="5000">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="discrepancyInfo">
+                  Discrepancy information
+                </label>
+                <textarea class="govuk-textarea govuk-js-character-count" id="discrepancyInfo" name="discrepancyInfo" rows="5" value="discrepancyInfo"></textarea>
+              </div>
+              <div id="discrepancyInfo-info" class="govuk-hint govuk-character-count__message">
+                You can enter up to 5000 characters
+              </div>
+            </div>
+            {% endif %}
           <button class="govuk-button" data-module="govuk-button">Continue</button>
         </form>
 
