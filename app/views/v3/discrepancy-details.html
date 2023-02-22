@@ -46,7 +46,7 @@ Give us more information about the discrepancy – {{ serviceName }} – GOV.UK 
 
         <form class="form" action="{{currentUrl}}" method="post">
             {% if errorDiscrepancyInfo == true %}
-            <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="5000">
+            <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="5000" data-threshold="75">
               <div class="govuk-form-group govuk-form-group--error">
                 <label class="govuk-label" for="discrepancyInfo">
                   Discrepancy information
@@ -61,7 +61,7 @@ Give us more information about the discrepancy – {{ serviceName }} – GOV.UK 
               </div>
             </div>
             {% else %}
-            <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="5000">
+            <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="5000" data-threshold="75">
               <div class="govuk-form-group">
                 <label class="govuk-label" for="discrepancyInfo">
                   Discrepancy information
