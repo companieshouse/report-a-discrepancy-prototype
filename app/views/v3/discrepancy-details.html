@@ -28,20 +28,15 @@ Give us more information about the discrepancy – {{ serviceName }} – GOV.UK 
         <p class="govuk-body">You should tell us:</p>
         
         <ul class="govuk-list govuk-list--bullet">
-          {% if data['discrepancyType'] == 'PSC' %}
-            <li>what information on the Companies House register is incorrect
-            </li>
-          {% else %}
-            <li>what information on the Companies House register is incorrect
-            </li>
-          {% endif %} 
+          <li>what information on the Companies House register is incorrect
+          </li>
           <li>the correct information as you believe it should be shown on the register
           </li>
           <li>any other relevant information about the discrepancy that supports the report
           </li>
         </ul>
 
-        <p class="govuk-body">If you’re reporting a missing registrable {{ data['discrepancyType'] }}, you 
+        <p class="govuk-body">If you’re reporting a missing {{ data['discrepancyType'] }}, you 
           need to tell us the name of the {{ data['discrepancyType'] }} who is missing.</p>
 
         <form class="form" action="{{currentUrl}}" method="post">
