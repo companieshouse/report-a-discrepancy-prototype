@@ -1,0 +1,49 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+      {% if data['discrepancyType'] == 'PSC' %}
+        A PSC for this company has details protected
+      {% else %}
+        A beneficial owner for this overseas entity has details protected
+      {% endif %}
+      </h1>
+
+      {% if data['discrepancyType'] == 'PSC' %}
+
+        <p>One or more person of significant control (PSC) for this company has their
+          details protected. This means you cannot use this service to report a 
+          discrepancy.</p>
+     
+
+        <p>If you need to report a discrepancy about a PSC on the PSC register 
+          for this company, you must contact the discrepancy team directly at  
+           <a href="#">pscdiscrepancy@companieshouse.gov.uk</a>.</p>
+
+      {% else %}
+
+        <p>One or more beneficial owners for this overseas entity has their
+          details protected. This means you cannot use this service to report a 
+          discrepancy.</p>
+
+        <p>If you need to report a discrepancy about a beneficial owner on the Companies House register 
+          for this overseas entity, you must contact the discrepancy team directly at  
+          <a href="#">ROEdiscrepancies@companieshouse.gov.uk</a>.</p>
+      {% endif %}
+
+    </div>
+  </div>
+
+{% endblock %}

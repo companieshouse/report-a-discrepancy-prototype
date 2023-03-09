@@ -1,0 +1,52 @@
+{% extends "layouts/main.html" %}
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+What is the name of your organisation – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "../includes/phase-banner.html" %}
+  {% include "../includes/account-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="{{currentUrl}}" method="post">
+        <!-- Check for error -->
+        {% if errorOrganisation %}
+        {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: errorList
+        }) }}
+        {% endif %} 
+
+        <!-- Check for error -->
+        {% if errorOrganisation %}
+        <div class="govuk-form-group govuk-form-group--error">
+        {% else %}
+        <div class="govuk-form-group">
+        {% endif %} 
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--l" for="email">
+              What is the name of your organisation?
+            </label>
+          </h1>
+          <!-- Check for error -->
+          {% if errorOrganisation %}
+          <p id="organisationName-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> Enter your organisation name
+          </p>
+          {% endif %} 
+          <input class="govuk-input govuk-!-width-two-thirds" id="organisationName" name="organisationName" type="text" aria-describedby="email-hint">
+        </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

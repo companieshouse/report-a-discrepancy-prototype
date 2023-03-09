@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Which PSC has a discrepancy for {{company_name}} – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "../includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="{{currentUrl}}" method="post">
+
+        <!-- Check for error -->
+        {% if errorDiscrepancyType %}
+          {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: errorList
+          }) }}
+        {% endif %}
+
+          <!-- Check for error -->
+            {% if errorDiscrepancyType %}
+            <div class="govuk-form-group govuk-form-group--error">
+            {% else %}
+            <div class="govuk-form-group">
+            {% endif %} 
+            <fieldset class="govuk-fieldset" aria-describedby="psc-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  Do you want to report a PSC discrepancy for a company or a beneficial owner discrepancy for an overseas entity?
+                </h1>
+              </legend>
+              <!-- Check for error -->
+              {% if errorDiscrepancyType %}
+              <p id="discrepancyType-error" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> Select a discrepancy type
+              </p>
+              {% endif %} 
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="discrepancyType" name="discrepancyType" type="radio" value="PSC">
+                  <label class="govuk-label govuk-radios__label" for="discrepancyType">
+                    Person with significant control (PSC) of a company
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="discrepancyType-2" name="discrepancyType" type="radio" value="registrable beneficial owner">
+                  <label class="govuk-label govuk-radios__label" for="discrepancyType-2">
+                    Registrable beneficial owner of an overseas entity
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+       
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

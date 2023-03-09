@@ -1,0 +1,74 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Give us more information about the discrepancy – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "../includes/phase-banner.html" %}
+  {% include "../includes/account-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <!-- Check for error -->
+        {% if errorDiscrepancyInfo == true %}
+          {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: errorList
+          }) }}
+        {% endif %}
+
+        <h1 class="govuk-heading-l">
+          Give us more information about the discrepancy
+        </h1>
+
+        <p class="govuk-body">You should tell us:</p>
+        
+        <ul class="govuk-list govuk-list--bullet">
+          <li>what information on the Companies House register is incorrect
+          </li>
+          <li>the correct information as you believe it should be shown on the register
+          </li>
+          <li>any other relevant information about the discrepancy that supports the report
+          </li>
+        </ul>
+
+        <p class="govuk-body">If you’re reporting a missing {{ data['discrepancyType'] }}, you 
+          need to tell us the name of the {{ data['discrepancyType'] }} who is missing.</p>
+
+        <form class="form" action="{{currentUrl}}" method="post"> 
+
+            <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="5000" data-threshold="75">
+              <!-- Check for error -->
+              {% if errorDiscrepancyInfo %}
+              <div class="govuk-form-group govuk-form-group--error">
+              {% else %}
+              <div class="govuk-form-group">
+              {% endif %} 
+                <label class="govuk-label" for="discrepancyInfo">
+                  Discrepancy information
+                </label>
+                <!-- Check for error -->
+                {% if errorDiscrepancyInfo %}
+                <p id="discrepancyInfo-error" class="govuk-error-message">
+                  <span class="govuk-visually-hidden">Error:</span> Enter the information that is incorrect
+                </p>
+                {% endif %} 
+                <textarea class="govuk-textarea govuk-js-character-count" id="discrepancyInfo" name="discrepancyInfo" rows="5" value="discrepancyInfo"></textarea>
+              </div>
+              <div id="discrepancyInfo-info" class="govuk-hint govuk-character-count__message">
+                You can enter up to 5000 characters
+              </div>
+            </div>
+
+          <button class="govuk-button" data-module="govuk-button">Continue</button>
+        </form>
+
+    </div>
+  </div>
+
+{% endblock %}

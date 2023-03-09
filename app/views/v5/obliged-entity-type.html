@@ -1,0 +1,140 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "../includes/phase-banner.html" %}
+  {% include "../includes/account-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="{{currentUrl}}" method="post">
+        <!-- Check for error -->
+        {% if errorType  %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: errorList
+        }) }}
+        {% endif %}
+
+        <!-- Check for error -->
+        {% if errorType %}
+        <div class="govuk-form-group govuk-form-group--error">
+        {% else %}
+        <div class="govuk-form-group">
+        {% endif %} 
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                What type of obliged entity are you?
+              </h1>
+            </legend>
+            <!-- Check for error -->
+            {% if errorType %}
+            <p id="obligedType-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Select what type of obliged entity you are
+            </p>
+            {% endif %} 
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="obligedType" name="obligedType" type="radio" value="Credit institution">
+                <label class="govuk-label govuk-radios__label" for="obligedType">
+                  Credit institution
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="obligedType-1" name="obligedType" type="radio" value="Financial institution">
+                <label class="govuk-label govuk-radios__label" for="obligedType-1">
+                  Financial institution
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="obligedType-2" name="obligedType" type="radio" value="Auditor, external accountant or tax advisor">
+                <label class="govuk-label govuk-radios__label" for="obligedType-2">
+                  Auditor, external accountant or tax advisor
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="obligedType-3" name="obligedType" type="radio" value="Notary or independent legal professional">
+                <label class="govuk-label govuk-radios__label" for="obligedType-3">
+                  Notary or independent legal professional
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="obligedType-4" name="obligedType" type="radio" value="Trust or company service provider">
+                <label class="govuk-label govuk-radios__label" for="obligedType-4">
+                  Trust or company service provider
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="obligedType-5" name="obligedType" type="radio" value="Estate agent or intermediary">
+                <label class="govuk-label govuk-radios__label" for="obligedType-5">
+                  Estate agent or intermediary
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="obligedType-6" name="obligedType" type="radio" value="Entity trading goods in cash over €10,000">
+                <label class="govuk-label govuk-radios__label" for="obligedType-6">
+                  Entity trading goods in cash over €10,000
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="obligedType-7" name="obligedType" type="radio" value="Gambling service provider">
+                <label class="govuk-label govuk-radios__label" for="obligedType-7">
+                  Gambling service provider
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="obligedType-8" name="obligedType" type="radio" value="Exchange service provider of fiat and virtual currencies">
+                <label class="govuk-label govuk-radios__label" for="obligedType-8">
+                  Exchange service provider of fiat and virtual currencies
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="obligedType-9" name="obligedType" type="radio" value="Custodian wallet provider">
+                <label class="govuk-label govuk-radios__label" for="obligedType-9">
+                  Custodian wallet provider
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="obligedType-10" name="obligedType" type="radio" value="Art dealer - galleries and auction houses">
+                <label class="govuk-label govuk-radios__label" for="obligedType-10">
+                  Art dealer - galleries and auction houses
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="obligedType-11" name="obligedType" type="radio" value="Art dealer - free ports">
+                <label class="govuk-label govuk-radios__label" for="obligedType-11">
+                  Art dealer - free ports
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="obligedType-12" name="obligedType" type="radio" value="Insolvency practitioner">
+                <label class="govuk-label govuk-radios__label" for="obligedType-12">
+                  Insolvency practitioner
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        {% if data['discrepancyType'] == 'PSC' %}
+        <p class="govuk-inset-text">If you’re not an obliged entity, do not use this service to report a person with significant control (PSC) discrepancy. If you want to update your PSC details, you can
+          <a class="govuk-link" href="https://www.gov.uk/file-changes-to-a-company-with-companies-house">tell Companies House about changes to your limited company</a>.</p>
+        {% else %}
+        <p class="govuk-inset-text">If you’re not an obliged entity, do not use this service to report a person with significant control (PSC) or registrable beneficial owner discrepancy. If you want to update your PSC details, you can
+          <a class="govuk-link" href="https://www.gov.uk/file-changes-to-a-company-with-companies-house">tell Companies House about changes to your limited company</a>.</p>
+        {% endif %}
+
+        {{ govukButton({
+        text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

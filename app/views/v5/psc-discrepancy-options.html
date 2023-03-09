@@ -1,0 +1,261 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+What type of discrepancy are you reporting for xxxx – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "../includes/phase-banner.html" %} 
+  {% include "../includes/account-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="{{currentUrl}}" method="post">
+        <!-- Check for error -->
+        {% if errorPscOptions == true %}
+          {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: errorList
+          }) }}
+        {% endif %}
+
+        <!-- Check for error -->
+        {% if errorPscOptions %}
+        <div class="govuk-form-group govuk-form-group--error">
+        {% else %}
+        <div class="govuk-form-group">
+        {% endif %} 
+          <fieldset class="govuk-fieldset" aria-describedby="psc-options-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                What type of discrepancy are you reporting for {{ data['pscName'] }}?
+              </h1>
+            </legend>
+            <!-- Check for error -->
+            {% if errorPscName %}
+            <p id="pscOptions-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Select the type of discrepancy you are reporting
+            </p>
+            {% endif %} 
+            <div id="pscOptions-hint" class="govuk-hint">
+              Select all that apply.
+            </div>
+            {% if data['pscName'] == 'Daniel Lambert' %}
+            <!--Individual-->
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="pscOptions" name="pscOptions" type="checkbox" value="Name">
+                <label class="govuk-label govuk-checkboxes__label" for="pscOptions">
+                  Name
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="pscOptions-2" name="pscOptions" type="checkbox" value="Date of birth">
+                <label class="govuk-label govuk-checkboxes__label" for="pscOptions-2">
+                  Date of birth
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="pscOptions-3" name="pscOptions" type="checkbox" value="Nationality">
+                <label class="govuk-label govuk-checkboxes__label" for="pscOptions-3">
+                  Nationality
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="pscOptions-4" name="pscOptions" type="checkbox" value="Country of residence">
+                <label class="govuk-label govuk-checkboxes__label" for="pscOptions-4">
+                  Country of residence
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="pscOptions-5" name="pscOptions" type="checkbox" value="Address">
+                <label class="govuk-label govuk-checkboxes__label" for="pscOptions-5">
+                  Correspondence address
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="pscOptions-6" name="pscOptions" type="checkbox" value="Notified date">
+                <label class="govuk-label govuk-checkboxes__label" for="pscOptions-6">
+                  Notified date
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="pscOptions-7" name="pscOptions" type="checkbox" value="Nature of control">
+                <label class="govuk-label govuk-checkboxes__label" for="pscOptions-7">
+                  Nature of control
+                </label>
+              </div>
+              <!--Add sanctioned for beneficial owner-->
+              {% if data['discrepancyType'] == 'registrable beneficial owner' %}
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="pscOptions-8" name="pscOptions" type="checkbox" value="Sanction">
+                <label class="govuk-label govuk-checkboxes__label" for="pscOptions-8">
+                  Sanction
+                </label>
+              </div>
+              {% endif %}
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="pscOptions-9" name="pscOptions" type="checkbox" value="Other reason">
+                <label class="govuk-label govuk-checkboxes__label" for="pscOptions-9">
+                  Other reason
+                </label>
+              </div>
+            </div>
+            {% elif data['pscName'] == 'Smith and Sons' %}
+            <!--Legal-->
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="pscOptions" name="pscOptions" type="checkbox" value="Name">
+                <label class="govuk-label govuk-checkboxes__label" for="pscOptions">
+                  Name
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="pscOptions-2" name="pscOptions" type="checkbox" value="Governing law">
+                <label class="govuk-label govuk-checkboxes__label" for="pscOptions-2">
+                  Governing law
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="pscOptions-3" name="pscOptions" type="checkbox" value="Legal form">
+                <label class="govuk-label govuk-checkboxes__label" for="pscOptions-3">
+                  Legal form
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="pscOptions-4" name="pscOptions" type="checkbox" value="Address">
+                <label class="govuk-label govuk-checkboxes__label" for="pscOptions-4">
+                  Address
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="pscOptions-5" name="pscOptions" type="checkbox" value="Notified date">
+                <label class="govuk-label govuk-checkboxes__label" for="pscOptions-5">
+                  Notified date
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="pscOptions-6" name="pscOptions" type="checkbox" value="Nature of control">
+                <label class="govuk-label govuk-checkboxes__label" for="pscOptions-6">
+                  Nature of control
+                </label>
+              </div>
+              <!--Add sanctioned + principal address for beneficial owner-->
+              {% if data['discrepancyType'] == 'registrable beneficial owner' %}
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="pscOptions-7" name="pscOptions" type="checkbox" value="Sanction">
+                <label class="govuk-label govuk-checkboxes__label" for="pscOptions-7">
+                  Sanction
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="pscOptions-7" name="pscOptions" type="checkbox" value="Principal office address">
+                <label class="govuk-label govuk-checkboxes__label" for="pscOptions-7">
+                  Principal office address
+                </label>
+              </div>
+              {% endif %}
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="pscOptions-8" name="pscOptions" type="checkbox" value="Other reason">
+                <label class="govuk-label govuk-checkboxes__label" for="pscOptions-8">
+                  Other reason
+                </label>
+              </div>
+            </div>
+            {% elif data['pscName'] == 'VB Corporation' %}
+            <!--Corporate-->
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="pscOptions" name="pscOptions" type="checkbox" value="Company name">
+                <label class="govuk-label govuk-checkboxes__label" for="pscOptions">
+                  Company name
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="pscOptions-2" name="pscOptions" type="checkbox" value="Company number">
+                <label class="govuk-label govuk-checkboxes__label" for="pscOptions-2">
+                  Company number
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="pscOptions-3" name="pscOptions" type="checkbox" value="Place of registration">
+                <label class="govuk-label govuk-checkboxes__label" for="pscOptions-3">
+                  Place of registration
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="pscOptions-4" name="pscOptions" type="checkbox" value="Incorporation law">
+                <label class="govuk-label govuk-checkboxes__label" for="pscOptions-4">
+                  Incorporation law
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="pscOptions-5" name="pscOptions" type="checkbox" value="Governing law">
+                <label class="govuk-label govuk-checkboxes__label" for="pscOptions-5">
+                  Governing law
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="pscOptions-6" name="pscOptions" type="checkbox" value="Legal form">
+                <label class="govuk-label govuk-checkboxes__label" for="pscOptions-6">
+                  Legal form
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="pscOptions-7" name="pscOptions" type="checkbox" value="Address">
+                <label class="govuk-label govuk-checkboxes__label" for="pscOptions-7">
+                  Address
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="pscOptions-8" name="pscOptions" type="checkbox" value="Notified date">
+                <label class="govuk-label govuk-checkboxes__label" for="pscOptions-8">
+                  Notified date
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="pscOptions-9" name="pscOptions" type="checkbox" value="Nature of control">
+                <label class="govuk-label govuk-checkboxes__label" for="pscOptions-9">
+                  Nature of control
+                </label>
+              </div>
+              <!--Add sanctioned + principal address for beneficial owner-->
+              {% if data['discrepancyType'] == 'registrable beneficial owner' %}
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="pscOptions-7" name="pscOptions" type="checkbox" value="Sanction">
+                <label class="govuk-label govuk-checkboxes__label" for="pscOptions-7">
+                  Sanction
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="pscOptions-7" name="pscOptions" type="checkbox" value="Principal office address">
+                <label class="govuk-label govuk-checkboxes__label" for="pscOptions-7">
+                  Principal office address
+                </label>
+              </div>
+              {% endif %}
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="pscOptions-11" name="pscOptions" type="checkbox" value="Other reason">
+                <label class="govuk-label govuk-checkboxes__label" for="pscOptions-11">
+                  Other reason
+                </label>
+              </div>
+            </div>
+            {% endif %}
+          </fieldset>
+        </div>
+
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
