@@ -59,20 +59,26 @@
         </div>
 
         <details class="govuk-details" data-module="govuk-details">
+          {% if data['discrepancyType'] == 'PSC' %}
           <summary class="govuk-details__summary">
             <span class="govuk-details__summary-text">
-            {% if data['discrepancyType'] == 'PSC' %}
               How do I find the company number?
-            {% else %}
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            You can find this by searching for the company on the <a target='blank' href='https://beta.companieshouse.gov.uk/'>Companies House register (opens in a new tab)</a>.
+          </div>
+        {% else %}
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
               How do I find the Overseas Entity ID?
-            {% endif %}
             </span>
           </summary>
           <div class="govuk-details__text">
             You can find this by searching for the overseas entity on the <a target='blank' href='https://beta.companieshouse.gov.uk/'>Companies House register (opens in a new tab)</a>.
           </div>
+          {% endif %}
         </details>
-
         {{ govukButton({
           text: "Continue"
         }) }}
